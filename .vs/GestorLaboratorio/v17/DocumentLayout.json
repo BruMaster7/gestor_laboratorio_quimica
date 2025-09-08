@@ -1,34 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\",
+  "WorkspaceRootPath": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmagenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmagenda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{231454D7-ADAF-44F6-AAE3-A19EDFD2B757}|Persistencia\\Persistencia.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\persistencia\\persistencia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{231454D7-ADAF-44F6-AAE3-A19EDFD2B757}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\persistencia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmsustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmsustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{231454D7-ADAF-44F6-AAE3-A19EDFD2B757}|Persistencia\\Persistencia.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\persistencia\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{231454D7-ADAF-44F6-AAE3-A19EDFD2B757}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\registroambiental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\registroambiental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\alerta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\alerta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\eventostock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\eventostock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\solicitudpractica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\solicitudpractica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\practica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\practica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\accesorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\accesorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\sustancia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\sustancia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22639D1D-5711-4102-B467-C74CB40BEB40}|Entidades\\Entidades.csproj|solutionrelative:entidades\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\gestorlaboratorio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\gestorlaboratorio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmhistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmhistorial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmformularios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmformularios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmalertas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmalertas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\franc\\onedrive\\escritorio\\visual\\gestorlaboratorio\\gestorlaboratorio\\frmaccesorios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmaccesorios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\bruno\\desktop\\gestorlaboratorio\\gestorlaboratorio\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +62,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Persistencia",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Persistencia\\Persistencia.csproj",
+              "RelativeDocumentMoniker": "Persistencia\\Persistencia.csproj",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Persistencia\\Persistencia.csproj",
+              "RelativeToolTip": "Persistencia\\Persistencia.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-08T03:30:04.399Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -47,85 +84,155 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FrmSustancias.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmSustancias.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmSustancias.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmSustancias.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmSustancias.cs [Dise\u00F1o]",
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Persistencia\\Conexion.cs",
+              "RelativeDocumentMoniker": "Persistencia\\Conexion.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Persistencia\\Conexion.cs",
+              "RelativeToolTip": "Persistencia\\Conexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:33:48.679Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-08T03:30:14.967Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmLogin.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmLogin.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmLogin.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmLogin.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmLogin.cs [Dise\u00F1o]",
+              "Title": "RegistroAmbiental.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\RegistroAmbiental.cs",
+              "RelativeDocumentMoniker": "Entidades\\RegistroAmbiental.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\RegistroAmbiental.cs",
+              "RelativeToolTip": "Entidades\\RegistroAmbiental.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:33:16.872Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-08T03:28:31.766Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FrmHistorial.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmHistorial.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmHistorial.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmHistorial.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmHistorial.cs [Dise\u00F1o]",
+              "Title": "Alerta.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Alerta.cs",
+              "RelativeDocumentMoniker": "Entidades\\Alerta.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Alerta.cs",
+              "RelativeToolTip": "Entidades\\Alerta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:32:35.044Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-08T03:27:55.211Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "FrmFormularios.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmFormularios.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmFormularios.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmFormularios.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmFormularios.cs [Dise\u00F1o]",
+              "Title": "EventoStock.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\EventoStock.cs",
+              "RelativeDocumentMoniker": "Entidades\\EventoStock.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\EventoStock.cs",
+              "RelativeToolTip": "Entidades\\EventoStock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:31:23.322Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-08T03:26:46.032Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "FrmAlertas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmAlertas.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmAlertas.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmAlertas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmAlertas.cs [Dise\u00F1o]",
+              "Title": "SolicitudPractica.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\SolicitudPractica.cs",
+              "RelativeDocumentMoniker": "Entidades\\SolicitudPractica.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\SolicitudPractica.cs",
+              "RelativeToolTip": "Entidades\\SolicitudPractica.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:28:30.845Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-08T03:25:47.386Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FrmAgenda.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmAgenda.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmAgenda.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmAgenda.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmAgenda.cs [Dise\u00F1o]",
+              "DocumentIndex": 7,
+              "Title": "Accesorio.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Accesorio.cs",
+              "RelativeDocumentMoniker": "Entidades\\Accesorio.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Accesorio.cs",
+              "RelativeToolTip": "Entidades\\Accesorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:27:26.301Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-08T03:24:56.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Sustancia.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Sustancia.cs",
+              "RelativeDocumentMoniker": "Entidades\\Sustancia.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Sustancia.cs",
+              "RelativeToolTip": "Entidades\\Sustancia.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBkAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T03:23:47.024Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "FrmAccesorios.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmAccesorios.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmAccesorios.cs",
-              "ToolTip": "C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio\\GestorLaboratorio\\FrmAccesorios.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GestorLaboratorio\\FrmAccesorios.cs [Dise\u00F1o]",
+              "Title": "Practica.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Practica.cs",
+              "RelativeDocumentMoniker": "Entidades\\Practica.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Practica.cs",
+              "RelativeToolTip": "Entidades\\Practica.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T04:21:55.697Z",
+              "WhenOpened": "2025-09-08T03:21:52.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Usuario.cs",
+              "RelativeDocumentMoniker": "Entidades\\Usuario.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\Entidades\\Usuario.cs",
+              "RelativeToolTip": "Entidades\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T03:21:08.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FrmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\GestorLaboratorio\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmLogin.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\GestorLaboratorio\\FrmLogin.cs",
+              "RelativeToolTip": "GestorLaboratorio\\FrmLogin.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAMwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T02:39:08.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FrmLogin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\GestorLaboratorio\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmLogin.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\GestorLaboratorio\\FrmLogin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestorLaboratorio\\FrmLogin.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T02:39:03.782Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "FrmPrincipal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\GestorLaboratorio\\FrmPrincipal.cs",
+              "RelativeDocumentMoniker": "GestorLaboratorio\\FrmPrincipal.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\GestorLaboratorio\\GestorLaboratorio\\FrmPrincipal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GestorLaboratorio\\FrmPrincipal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T02:38:57.04Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

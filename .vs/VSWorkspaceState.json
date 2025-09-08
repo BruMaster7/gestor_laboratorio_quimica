@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GestorLaboratorio",
+    "\\GestorLaboratorio\\Resources"
   ],
-  "SelectedNode": "\\C:\\Users\\franc\\OneDrive\\Escritorio\\Visual\\GestorLaboratorio",
+  "SelectedNode": "\\GestorLaboratorio\\Resources",
   "PreviewInSolutionExplorer": false
 }

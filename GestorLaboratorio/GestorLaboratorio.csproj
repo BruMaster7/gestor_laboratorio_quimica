@@ -197,5 +197,11 @@
   <ItemGroup>
     <None Include="Resources\BackbrownDark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{22639d1d-5711-4102-b467-c74cb40beb40}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
