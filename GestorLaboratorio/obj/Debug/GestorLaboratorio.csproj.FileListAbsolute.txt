@@ -1,0 +1,13 @@
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\bin\Debug\GestorLaboratorio.exe.config
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\bin\Debug\GestorLaboratorio.exe
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\bin\Debug\GestorLaboratorio.pdb
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.csproj.AssemblyReference.cache
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.FrmPrincipal.resources
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.Properties.Resources.resources
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.csproj.GenerateResource.cache
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.csproj.CoreCompileInputs.cache
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.exe
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.pdb
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.exe.config
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.frmHistorial.resources
+C:\Users\franc\source\repos\GestorLaboratorio\GestorLaboratorio\obj\Debug\GestorLaboratorio.FrmSustancias.resources
