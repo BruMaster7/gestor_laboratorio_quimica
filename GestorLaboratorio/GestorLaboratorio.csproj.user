@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="FrmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAlertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAltaAccesorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAltaSustancias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmFormularios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmGestionAccesorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmGestorSustancias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UcAlertCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
