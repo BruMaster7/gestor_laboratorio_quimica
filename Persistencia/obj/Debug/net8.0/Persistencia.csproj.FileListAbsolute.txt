@@ -32,3 +32,4 @@ C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Persistencia\obj\Debug\net8.0\
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Persistencia\obj\Debug\net8.0\refint\Persistencia.dll
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Persistencia\obj\Debug\net8.0\Persistencia.pdb
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Persistencia\obj\Debug\net8.0\ref\Persistencia.dll
+C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Persistencia\obj\Debug\net8.0\Persistencia.sourcelink.json

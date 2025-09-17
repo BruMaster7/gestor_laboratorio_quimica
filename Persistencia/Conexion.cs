@@ -64,6 +64,11 @@ namespace Persistencia
                     Console.WriteLine("Error general: " + ex.Message);
                 }
             }
+
+            public MySqlConnection ObtenerConexion()
+            {
+                return conexion;
+            }
         }
     }
 }

@@ -102,3 +102,4 @@ C:\Users\bruno\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\ne
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\GestorLaboratorio.pdb
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\GestorLaboratorio.genruntimeconfig.cache
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\ref\GestorLaboratorio.dll
+C:\Users\bruno\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\GestorLaboratorio.sourcelink.json

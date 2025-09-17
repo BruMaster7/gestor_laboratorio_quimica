@@ -20,3 +20,4 @@ C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Entidades\obj\Debug\net8.0\Ent
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Entidades\obj\Debug\net8.0\refint\Entidades.dll
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Entidades\obj\Debug\net8.0\Entidades.pdb
 C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Entidades\obj\Debug\net8.0\ref\Entidades.dll
+C:\Users\bruno\Desktop\gestor_laboratorio_quimica\Entidades\obj\Debug\net8.0\Entidades.sourcelink.json
