@@ -26,7 +26,7 @@ namespace GestorLaboratorio
             try
             {
                 // 1. Crear objeto Sustancia
-                Sustancia s = new Sustancia
+                Sustancia nueva = new Sustancia
                 {
                     Nombre = txtNombreSus.Text.Trim(),
                     Categoria = cmbCategoriaSus.Text, // ComboBox, se toma el texto seleccionado
@@ -46,11 +46,9 @@ namespace GestorLaboratorio
                 string incompatibilidad = txtIncompSus.Text.Trim();
 
                 // 2. Guardar en la BD
-                SustanciaService service = new SustanciaService();
-                service.AgregarSustancia(s);
-
+                SistemaFacade.Instancia.AgregarSustancia(nueva);
                 // 3. Aviso al usuario
-                MessageBox.Show("Sustancia agregada con éxito. ID generado: " + s.IdSustancia,
+                MessageBox.Show("Sustancia agregada con éxito. ID generado: " + nueva.IdSustancia,
                                 "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // 4. (Opcional) limpiar campos

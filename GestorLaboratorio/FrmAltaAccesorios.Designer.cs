@@ -146,6 +146,7 @@
             btnAgregarAcc.TabIndex = 52;
             btnAgregarAcc.Text = "Agregar";
             btnAgregarAcc.UseVisualStyleBackColor = false;
+            btnAgregarAcc.Click += btnAgregarAcc_Click;
             // 
             // txtDescripcionAltaAcc
             // 
