@@ -12,8 +12,5 @@ namespace Entidades
         public string Descripcion { get; set; }
         public int StockActual { get; set; }
         public string Ubicacion { get; set; }
-
-        //public void ActualizarStock(int cantidad) { /* Lógica de actualización */ }
-        //public bool EstaDisponible() { /* Lógica de disponibilidad */ }
     }
 }
