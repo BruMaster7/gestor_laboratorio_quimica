@@ -9,7 +9,8 @@
       "Dominio/1.0.0": {
         "dependencies": {
           "Entidades": "1.0.0",
-          "Persistencia": "1.0.0"
+          "Persistencia": "1.0.0",
+          "MySql.Data": "9.4.0.0"
         },
         "runtime": {
           "Dominio.dll": {}

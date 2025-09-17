@@ -147,6 +147,7 @@
             btnAgregarSus.TabIndex = 53;
             btnAgregarSus.Text = "Agregar";
             btnAgregarSus.UseVisualStyleBackColor = false;
+            btnAgregarSus.Click += btnAgregarSus_Click;
             // 
             // txtNombreSus
             // 
