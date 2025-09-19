@@ -39,18 +39,15 @@
             txtUbicacionGestionAcc = new TextBox();
             txtNombreGestionAcc = new TextBox();
             dgvAccesorios = new DataGridView();
-            Nombre = new DataGridViewTextBoxColumn();
-            Categoría = new DataGridViewTextBoxColumn();
-            Stock = new DataGridViewTextBoxColumn();
             btnActualizarGestionAcc = new Button();
             btnEliminarGestionAcc = new Button();
             label5 = new Label();
-            cmbCategoriaFiltro = new ComboBox();
-            label27 = new Label();
             label26 = new Label();
             txtFiltroNombre = new TextBox();
             label7 = new Label();
             label8 = new Label();
+            btnBuscar = new Button();
+            btnSinFiltro = new Button();
             ((System.ComponentModel.ISupportInitialize)nudStockGestionAcc).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvAccesorios).BeginInit();
             SuspendLayout();
@@ -168,30 +165,11 @@
             dgvAccesorios.BackgroundColor = Color.SaddleBrown;
             dgvAccesorios.BorderStyle = BorderStyle.Fixed3D;
             dgvAccesorios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAccesorios.Columns.AddRange(new DataGridViewColumn[] { Nombre, Categoría, Stock });
-            dgvAccesorios.Location = new Point(481, 27);
+            dgvAccesorios.Location = new Point(378, 27);
             dgvAccesorios.Name = "dgvAccesorios";
             dgvAccesorios.RowHeadersVisible = false;
-            dgvAccesorios.Size = new Size(426, 422);
+            dgvAccesorios.Size = new Size(577, 422);
             dgvAccesorios.TabIndex = 70;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.Width = 195;
-            // 
-            // Categoría
-            // 
-            Categoría.HeaderText = "Categoría";
-            Categoría.Name = "Categoría";
-            Categoría.Width = 125;
-            // 
-            // Stock
-            // 
-            Stock.HeaderText = "Stock";
-            Stock.Name = "Stock";
-            Stock.Width = 60;
             // 
             // btnActualizarGestionAcc
             // 
@@ -204,6 +182,7 @@
             btnActualizarGestionAcc.TabIndex = 71;
             btnActualizarGestionAcc.Text = "Actualizar";
             btnActualizarGestionAcc.UseVisualStyleBackColor = false;
+            btnActualizarGestionAcc.Click += btnActualizarGestionAcc_Click;
             // 
             // btnEliminarGestionAcc
             // 
@@ -228,29 +207,6 @@
             label5.Size = new Size(343, 45);
             label5.TabIndex = 73;
             label5.Text = "Gestion de accesorios";
-            // 
-            // cmbCategoriaFiltro
-            // 
-            cmbCategoriaFiltro.BackColor = Color.PeachPuff;
-            cmbCategoriaFiltro.FormattingEnabled = true;
-            cmbCategoriaFiltro.Items.AddRange(new object[] { "Orgánico", "Ácido", "Base", "Sal", "Vidrio" });
-            cmbCategoriaFiltro.Location = new Point(723, 484);
-            cmbCategoriaFiltro.Margin = new Padding(4, 3, 4, 3);
-            cmbCategoriaFiltro.Name = "cmbCategoriaFiltro";
-            cmbCategoriaFiltro.Size = new Size(160, 25);
-            cmbCategoriaFiltro.TabIndex = 106;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.BackColor = Color.Transparent;
-            label27.ForeColor = SystemColors.ButtonFace;
-            label27.Location = new Point(764, 466);
-            label27.Margin = new Padding(4, 0, 4, 0);
-            label27.Name = "label27";
-            label27.Size = new Size(67, 17);
-            label27.TabIndex = 104;
-            label27.Text = "Categoría";
             // 
             // label26
             // 
@@ -296,6 +252,32 @@
             label8.TabIndex = 108;
             label8.Text = "Filtrar por:";
             // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.IndianRed;
+            btnBuscar.FlatStyle = FlatStyle.Popup;
+            btnBuscar.ForeColor = Color.White;
+            btnBuscar.Location = new Point(717, 486);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(102, 26);
+            btnBuscar.TabIndex = 109;
+            btnBuscar.Text = "🔎 BUSCAR";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // btnSinFiltro
+            // 
+            btnSinFiltro.BackColor = Color.FromArgb(0, 0, 64);
+            btnSinFiltro.FlatStyle = FlatStyle.Popup;
+            btnSinFiltro.ForeColor = Color.White;
+            btnSinFiltro.Location = new Point(834, 485);
+            btnSinFiltro.Name = "btnSinFiltro";
+            btnSinFiltro.Size = new Size(102, 26);
+            btnSinFiltro.TabIndex = 110;
+            btnSinFiltro.Text = "LIMPIAR FILTROS";
+            btnSinFiltro.UseVisualStyleBackColor = false;
+            btnSinFiltro.Click += btnSinFiltro_Click;
+            // 
             // FrmGestionAccesorios
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
@@ -303,10 +285,10 @@
             BackgroundImage = Properties.Resources.BackbrownDark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(967, 533);
+            Controls.Add(btnSinFiltro);
+            Controls.Add(btnBuscar);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(cmbCategoriaFiltro);
-            Controls.Add(label27);
             Controls.Add(label26);
             Controls.Add(txtFiltroNombre);
             Controls.Add(label5);
@@ -355,15 +337,12 @@
         private System.Windows.Forms.DataGridView dgvAccesorios;
         private System.Windows.Forms.Button btnActualizarGestionAcc;
         private System.Windows.Forms.Button btnEliminarGestionAcc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoría;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.Label label5;
-        private ComboBox cmbCategoriaFiltro;
-        private Label label27;
         private Label label26;
         private TextBox txtFiltroNombre;
         private Label label7;
         private Label label8;
+        private Button btnBuscar;
+        private Button btnSinFiltro;
     }
 }

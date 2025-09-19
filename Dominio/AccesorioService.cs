@@ -38,6 +38,13 @@ namespace Dominio
             return accesorioDAO.ObtenerPorNombre(nombre);
         }
 
+        public List<Accesorio> BuscarPorNombre(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("Debe especificar un nombre válido.");
+            return accesorioDAO.BuscarPorNombre(nombre);
+        }
+
         public void ActualizarAccesorio(Accesorio a)
         {
             if (string.IsNullOrWhiteSpace(a.Nombre))

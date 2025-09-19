@@ -21,7 +21,7 @@ namespace Dominio
             accesorioService = new AccesorioService();
         }
 
-        // 🟢 Acceso único a la instancia
+        // Acceso único a la instancia
         public static SistemaFacade Instancia
         {
             get
@@ -32,7 +32,7 @@ namespace Dominio
             }
         }
 
-        // Métodos que exponen la lógica del sistema
+        // Metodos Sustancia
         public void AgregarSustancia(Sustancia s)
         {
             sustanciaService.AgregarSustancia(s);
@@ -76,6 +76,8 @@ namespace Dominio
         public Accesorio ObtenerAccesorioPorNombre(string nombre) => accesorioService.ObtenerPorNombre(nombre);
         public void ActualizarAccesorio(Accesorio a) => accesorioService.ActualizarAccesorio(a);
         public void EliminarAccesorio(string nombre) => accesorioService.EliminarAccesorio(nombre);
+
+        public List<Accesorio> BuscarAccesoriosPorNombre(string nombre) => accesorioService.BuscarPorNombre(nombre);
     }
 
 }

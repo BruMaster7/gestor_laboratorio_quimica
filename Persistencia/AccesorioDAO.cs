@@ -103,6 +103,38 @@ namespace Persistencia
             return accesorio;
         }
 
+        public List<Accesorio> BuscarPorNombre(string filtro)
+        {
+            var lista = new List<Accesorio>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = @"SELECT idAccesorio, nombre, descripcion, stockActual, ubicacion
+                       FROM Accesorio
+                       WHERE nombre LIKE @filtro";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%"); // contiene
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(Mapear(reader));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar accesorios: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+
         // 🔎 Actualizar accesorio
         public void Actualizar(Accesorio a)
         {
