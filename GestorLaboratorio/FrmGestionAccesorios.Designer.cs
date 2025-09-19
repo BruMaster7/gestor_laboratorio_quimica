@@ -195,6 +195,7 @@
             btnEliminarGestionAcc.TabIndex = 72;
             btnEliminarGestionAcc.Text = "Eliminar";
             btnEliminarGestionAcc.UseVisualStyleBackColor = false;
+            btnEliminarGestionAcc.Click += btnEliminarGestionAcc_Click;
             // 
             // label5
             // 

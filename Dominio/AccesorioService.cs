@@ -17,6 +17,13 @@ namespace Dominio
             accesorioDAO = new AccesorioDAO();
         }
 
+        public Accesorio ObtenerPorId(int id)
+        {
+            if (id <= 0)
+                throw new ArgumentException("El ID debe ser un número positivo.");
+            return accesorioDAO.ObtenerAccesorioPorId(id);
+        }
+
         public void AgregarAccesorio(Accesorio a)
         {
             if (string.IsNullOrWhiteSpace(a.Nombre))
@@ -59,6 +66,13 @@ namespace Dominio
                 throw new ArgumentException("Debe especificar un nombre válido.");
 
             accesorioDAO.Eliminar(nombre);
+        }
+
+        public bool ExistePorNombre(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("Debe especificar un nombre válido.");
+            return accesorioDAO.ExistePorNombre(nombre);
         }
     }
 }

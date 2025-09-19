@@ -71,6 +71,8 @@ namespace Dominio
         // -----------------------------
         // Accesorios
         // -----------------------------
+
+        public Accesorio ObtenerAccesorioPorId(int id) => accesorioService.ObtenerPorId(id);
         public void AgregarAccesorio(Accesorio a) => accesorioService.AgregarAccesorio(a);
         public List<Accesorio> ObtenerAccesorios() => accesorioService.ObtenerTodos();
         public Accesorio ObtenerAccesorioPorNombre(string nombre) => accesorioService.ObtenerPorNombre(nombre);
@@ -78,6 +80,7 @@ namespace Dominio
         public void EliminarAccesorio(string nombre) => accesorioService.EliminarAccesorio(nombre);
 
         public List<Accesorio> BuscarAccesoriosPorNombre(string nombre) => accesorioService.BuscarPorNombre(nombre);
+        public bool ExisteAccesorioPorNombre(string nombre) => accesorioService.ExistePorNombre(nombre);
     }
 
 }
