@@ -68,6 +68,21 @@ namespace Dominio
             return sustanciaService.EsCompatible(id1, id2);
         }
 
+        public List<Sustancia> Buscar(string nombre, string categoria, string ubicacion)
+        {
+            return sustanciaService.Buscar(nombre, categoria, ubicacion);
+        }
+
+        public List<string> ObtenerCategorias()
+        {
+            return sustanciaService.ObtenerCategorias();
+        }
+
+        public List<string> ObtenerUbicaciones()
+        {
+            return sustanciaService.ObtenerUbicaciones();
+        }
+
         // -----------------------------
         // Accesorios
         // -----------------------------

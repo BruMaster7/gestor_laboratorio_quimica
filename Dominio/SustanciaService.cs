@@ -59,6 +59,21 @@ namespace Dominio
         {
             return dao.EsCompatible(id1, id2);
         }
+
+        public List<Sustancia> Buscar(string nombre,string categoria, string ubicacion)
+        {
+            return dao.Buscar(nombre, categoria, ubicacion);
+        }
+
+        public List<string> ObtenerCategorias()
+        {
+            return dao.ObtenerCategorias();
+        }
+
+        public List<string> ObtenerUbicaciones ()
+        {
+            return dao.ObtenerUbicaciones();
+        }
     }
 
 }

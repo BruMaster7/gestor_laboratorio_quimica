@@ -25,6 +25,10 @@ namespace GestorLaboratorio
         private void FrmGestorSustancias_Load(object sender, EventArgs e)
         {
             CargarSustancias();
+            cargarCategorias();
+            cargarUbicaciones();
+
+            cmbUbiFiltro.SelectedIndex = 0;
 
         }
 
@@ -42,6 +46,37 @@ namespace GestorLaboratorio
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar las sustancias: " + ex.Message);
+            }
+        }
+
+        private void cargarCategorias()
+        {
+            try
+            {
+                // Evaluar el resultado de la función para obtener la lista de categorías
+                var categorias = SistemaFacade.Instancia.ObtenerCategorias();
+
+                cmbCategoriaFiltro.Items.Clear();
+                cmbCategoriaFiltro.Items.AddRange(categorias.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las categorías: " + ex.Message);
+            }
+        }
+
+        private void cargarUbicaciones()
+        {
+            try
+            {
+                // Evaluar el resultado de la función para obtener la lista de ubicaciones
+                var ubicaciones = SistemaFacade.Instancia.ObtenerUbicaciones();
+                cmbUbiFiltro.Items.Clear();
+                cmbUbiFiltro.Items.AddRange(ubicaciones.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las ubicaciones: " + ex.Message);
             }
         }
 
@@ -162,6 +197,36 @@ namespace GestorLaboratorio
             {
                 MessageBox.Show("Error al modificar: " + ex.Message);
             }
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            // Obtener los valores de los filtros
+            string categoriaFiltro = cmbCategoriaFiltro.SelectedItem?.ToString();
+            string ubicacionFiltro = cmbUbiFiltro.SelectedItem?.ToString();
+            string nombreFiltro = txtFiltroNombre.Text.Trim();
+            try
+            {
+                var resultados = SistemaFacade.Instancia.Buscar(nombreFiltro, categoriaFiltro, ubicacionFiltro);
+                dgvSus.DataSource = null;
+                dgvSus.DataSource = resultados;
+                dgvSus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar sustancias: " + ex.Message);
+            }
+        }
+
+        private void btnSinFiltro_Click(object sender, EventArgs e)
+        {
+            // Limpiar filtros
+            cmbCategoriaFiltro.SelectedIndex = -1;
+            cmbUbiFiltro.SelectedIndex = 0; // Asumiendo que el índice 0 es "Todos" o el valor inicial
+            txtFiltroNombre.Clear();
+
+            // Recargar todas las sustancias
+            CargarSustancias();
         }
     }
 

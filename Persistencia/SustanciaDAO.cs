@@ -263,7 +263,106 @@ namespace Dominio
             }
         }
 
-        // 🔧 Mapear sustancia desde reader
+
+        // Buscar Sustancia por nombre (parcial), categoria y ubicación
+        public List<Sustancia> Buscar(string nombre = null, string categoria = null, string ubicacion = null)
+        {
+            var lista = new List<Sustancia>();
+            try
+            {
+                conexion.AbrirConexion();
+                var condiciones = new List<string>();
+                if (!string.IsNullOrWhiteSpace(nombre))
+                    condiciones.Add("nombre LIKE @nombre");
+                if (!string.IsNullOrWhiteSpace(categoria))
+                    condiciones.Add("categoria = @categoria");
+                if (!string.IsNullOrWhiteSpace(ubicacion))
+                    condiciones.Add("ubicacion = @ubicacion");
+                string whereClause = condiciones.Count > 0 ? "WHERE " + string.Join(" AND ", condiciones) : "";
+                string sql = $"SELECT * FROM Sustancia {whereClause}";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                if (!string.IsNullOrWhiteSpace(nombre))
+                    cmd.Parameters.AddWithValue("@nombre", "%" + nombre + "%");
+                if (!string.IsNullOrWhiteSpace(categoria))
+                    cmd.Parameters.AddWithValue("@categoria", categoria);
+                if (!string.IsNullOrWhiteSpace(ubicacion))
+                    cmd.Parameters.AddWithValue("@ubicacion", ubicacion);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(Mapear(reader));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar sustancias: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+        // Traer todas las ubicaciones únicas
+        public List<string> ObtenerUbicaciones()
+        {
+            var lista = new List<string>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT DISTINCT ubicacion FROM Sustancia";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(reader.GetString("ubicacion"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener ubicaciones: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+        // Traer todas las categorías únicas
+        public List<string> ObtenerCategorias()
+        {
+            var lista = new List<string>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT DISTINCT categoria FROM Sustancia";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(reader.GetString("categoria"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener categorías: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+        // Mapear sustancia desde reader
         private Sustancia Mapear(MySqlDataReader reader)
         {
             return new Sustancia

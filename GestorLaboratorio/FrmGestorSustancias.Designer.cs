@@ -33,11 +33,11 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             cmbCategoriaFiltro = new ComboBox();
             label29 = new Label();
-            label28 = new Label();
+            ubiLabel = new Label();
             label27 = new Label();
             label26 = new Label();
             txtFiltroNombre = new TextBox();
-            cmbStockFiltro = new ComboBox();
+            cmbUbiFiltro = new ComboBox();
             dgvSus = new DataGridView();
             btnEliminarGestionSus = new Button();
             pictureBox2 = new PictureBox();
@@ -68,6 +68,7 @@
             dtpFechaIngGestionSus = new DateTimePicker();
             label1 = new Label();
             btnFiltrar = new Button();
+            btnSinFiltro = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvSus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudStockAGestorSus).BeginInit();
@@ -97,17 +98,17 @@
             label29.TabIndex = 99;
             label29.Text = "Filtrar por:";
             // 
-            // label28
+            // ubiLabel
             // 
-            label28.AutoSize = true;
-            label28.BackColor = Color.Transparent;
-            label28.ForeColor = SystemColors.ButtonFace;
-            label28.Location = new Point(583, 413);
-            label28.Margin = new Padding(4, 0, 4, 0);
-            label28.Name = "label28";
-            label28.Size = new Size(73, 13);
-            label28.TabIndex = 98;
-            label28.Text = "Estado Stock";
+            ubiLabel.AutoSize = true;
+            ubiLabel.BackColor = Color.Transparent;
+            ubiLabel.ForeColor = SystemColors.ButtonFace;
+            ubiLabel.Location = new Point(583, 413);
+            ubiLabel.Margin = new Padding(4, 0, 4, 0);
+            ubiLabel.Name = "ubiLabel";
+            ubiLabel.Size = new Size(58, 13);
+            ubiLabel.TabIndex = 98;
+            ubiLabel.Text = "Ubicacion";
             // 
             // label27
             // 
@@ -144,16 +145,16 @@
             txtFiltroNombre.Size = new Size(119, 20);
             txtFiltroNombre.TabIndex = 95;
             // 
-            // cmbStockFiltro
+            // cmbUbiFiltro
             // 
-            cmbStockFiltro.BackColor = Color.LightGreen;
-            cmbStockFiltro.FormattingEnabled = true;
-            cmbStockFiltro.Items.AddRange(new object[] { "Inflamable", "Tóxica", "Corrosiva", "Explosiva" });
-            cmbStockFiltro.Location = new Point(570, 428);
-            cmbStockFiltro.Margin = new Padding(4, 3, 4, 3);
-            cmbStockFiltro.Name = "cmbStockFiltro";
-            cmbStockFiltro.Size = new Size(103, 21);
-            cmbStockFiltro.TabIndex = 94;
+            cmbUbiFiltro.BackColor = Color.LightGreen;
+            cmbUbiFiltro.FormattingEnabled = true;
+            cmbUbiFiltro.Items.AddRange(new object[] { "Inflamable", "Tóxica", "Corrosiva", "Explosiva" });
+            cmbUbiFiltro.Location = new Point(570, 428);
+            cmbUbiFiltro.Margin = new Padding(4, 3, 4, 3);
+            cmbUbiFiltro.Name = "cmbUbiFiltro";
+            cmbUbiFiltro.Size = new Size(103, 21);
+            cmbUbiFiltro.TabIndex = 94;
             // 
             // dgvSus
             // 
@@ -533,6 +534,20 @@
             btnFiltrar.TabIndex = 102;
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // btnSinFiltro
+            // 
+            btnSinFiltro.BackColor = Color.FromArgb(0, 0, 64);
+            btnSinFiltro.FlatStyle = FlatStyle.Popup;
+            btnSinFiltro.ForeColor = Color.White;
+            btnSinFiltro.Location = new Point(828, 422);
+            btnSinFiltro.Name = "btnSinFiltro";
+            btnSinFiltro.Size = new Size(142, 32);
+            btnSinFiltro.TabIndex = 111;
+            btnSinFiltro.Text = "LIMPIAR FILTROS";
+            btnSinFiltro.UseVisualStyleBackColor = false;
+            btnSinFiltro.Click += btnSinFiltro_Click;
             // 
             // FrmGestorSustancias
             // 
@@ -541,15 +556,16 @@
             BackgroundImage = Properties.Resources.BackgreenDark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1140, 622);
+            Controls.Add(btnSinFiltro);
             Controls.Add(btnFiltrar);
             Controls.Add(label1);
             Controls.Add(cmbCategoriaFiltro);
             Controls.Add(label29);
-            Controls.Add(label28);
+            Controls.Add(ubiLabel);
             Controls.Add(label27);
             Controls.Add(label26);
             Controls.Add(txtFiltroNombre);
-            Controls.Add(cmbStockFiltro);
+            Controls.Add(cmbUbiFiltro);
             Controls.Add(dgvSus);
             Controls.Add(btnEliminarGestionSus);
             Controls.Add(pictureBox2);
@@ -602,11 +618,11 @@
 
         private System.Windows.Forms.ComboBox cmbCategoriaFiltro;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label ubiLabel;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtFiltroNombre;
-        private System.Windows.Forms.ComboBox cmbStockFiltro;
+        private System.Windows.Forms.ComboBox cmbUbiFiltro;
         private System.Windows.Forms.DataGridView dgvSus;
         private System.Windows.Forms.Button btnEliminarGestionSus;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -637,5 +653,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaIngGestionSus;
         private System.Windows.Forms.Label label1;
         private Button btnFiltrar;
+        private Button btnSinFiltro;
     }
 }
