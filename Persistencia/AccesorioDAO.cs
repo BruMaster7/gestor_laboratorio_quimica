@@ -160,6 +160,28 @@ namespace Persistencia
             return lista;
         }
 
+                public List<Accesorio> ObtenerAccesoriosSinStock()
+        {
+            var lista = new List<Accesorio>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT * FROM Accesorio WHERE stockActual <= 0";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(Mapear(reader));
+                    }
+                }
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
 
         // 🔎 Actualizar accesorio
         public void Actualizar(Accesorio a)

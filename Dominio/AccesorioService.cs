@@ -11,10 +11,12 @@ namespace Dominio
     public class AccesorioService
     {
         private AccesorioDAO accesorioDAO;
+        private AlertaService alerta = new AlertaService();
 
         public AccesorioService()
         {
             accesorioDAO = new AccesorioDAO();
+
         }
 
         public Accesorio ObtenerPorId(int id)
@@ -30,6 +32,8 @@ namespace Dominio
                 throw new ArgumentException("El nombre del accesorio no puede estar vacío.");
 
             accesorioDAO.Insertar(a);
+            alerta.GenerarYGuardarAlertas();
+            
         }
 
         public List<Accesorio> ObtenerTodos()
@@ -58,6 +62,7 @@ namespace Dominio
                 throw new ArgumentException("El nombre del accesorio no puede estar vacío.");
 
             accesorioDAO.Actualizar(a);
+            alerta.GenerarYGuardarAlertas();
         }
 
         public void EliminarAccesorio(string nombre)
@@ -66,6 +71,7 @@ namespace Dominio
                 throw new ArgumentException("Debe especificar un nombre válido.");
 
             accesorioDAO.Eliminar(nombre);
+            alerta.GenerarYGuardarAlertas();
         }
 
         public bool ExistePorNombre(string nombre)

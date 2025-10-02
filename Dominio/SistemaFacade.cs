@@ -12,6 +12,7 @@ namespace Dominio
         private static SistemaFacade instancia;   // Singleton
         private SustanciaService sustanciaService;
         private AccesorioService accesorioService;
+        private AlertaService alertaService = new AlertaService();
 
 
         // 🔒 Constructor privado (evita que se pueda instanciar fuera)
@@ -96,6 +97,13 @@ namespace Dominio
 
         public List<Accesorio> BuscarAccesoriosPorNombre(string nombre) => accesorioService.BuscarPorNombre(nombre);
         public bool ExisteAccesorioPorNombre(string nombre) => accesorioService.ExistePorNombre(nombre);
+
+        // -----------------------------
+        // ALERTAS
+        // -----------------------------
+
+        public List<Alerta> ObtenerAlertas() => alertaService.ObtenerAlertasActuales();
+
     }
 
 }

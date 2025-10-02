@@ -362,6 +362,29 @@ namespace Dominio
             return lista;
         }
 
+        public List<Sustancia> ObtenerVencidas()
+        {
+            var lista = new List<Sustancia>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT * FROM Sustancia WHERE fechaVencimiento <= CURDATE()";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(Mapear(reader));
+                    }
+                }
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
         // Mapear sustancia desde reader
         private Sustancia Mapear(MySqlDataReader reader)
         {

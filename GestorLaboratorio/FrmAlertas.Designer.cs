@@ -64,6 +64,7 @@
             Name = "FrmAlertas";
             ShowIcon = false;
             WindowState = FormWindowState.Maximized;
+            Load += FrmAlertas_Load;
             ResumeLayout(false);
             PerformLayout();
 

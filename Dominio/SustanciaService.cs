@@ -10,6 +10,7 @@ namespace Dominio
     public class SustanciaService
     {
         private SustanciaDAO dao;
+        private AlertaService alerta = new AlertaService();
 
         public SustanciaService()
         {
@@ -28,6 +29,7 @@ namespace Dominio
                 throw new ArgumentException("La fecha de vencimiento debe ser posterior a la de ingreso.");
 
             dao.Insertar(s);
+            alerta.GenerarYGuardarAlertas();
         }
 
         public List<Sustancia> ObtenerTodas()
@@ -43,11 +45,13 @@ namespace Dominio
         public void Actualizar(Sustancia s)
         {
             dao.Actualizar(s);
+            alerta.GenerarYGuardarAlertas();
         }
 
         public void Eliminar(int id)
         {
             dao.Eliminar(id);
+            alerta.GenerarYGuardarAlertas();
         }
 
         public List<Sustancia> ObtenerCriticas()
@@ -74,6 +78,7 @@ namespace Dominio
         {
             return dao.ObtenerUbicaciones();
         }
+
     }
 
 }
