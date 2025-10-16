@@ -21,10 +21,5 @@ namespace Entidades
         public int StockMinimo { get; set; }
         public string Peligrosidad { get; set; }
         public string EnvaseRecomendado { get; set; }
-
-        //public void ActualizarStock(int cantidad) { /* Lógica de actualización */ }
-        //public bool EsCritica() { /* Lógica de verificación */ }
-        //public bool EsCompatibleCon(Sustancia sustancia) { /* Lógica de compatibilidad */ }
-        //public void GenerarAlerta() { /* Lógica de generación de alerta */ }
     }
 }

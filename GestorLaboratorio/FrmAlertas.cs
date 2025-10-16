@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,17 @@ namespace GestorLaboratorio
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void FrmAlertas_Load(object sender, EventArgs e)
+        {
+            List<Alerta> alertas = SistemaFacade.Instancia.ObtenerAlertas();
+            listAlertas.Items.Clear();
+            foreach (var alerta in alertas)
+            {
+                listAlertas.Items.Add(alerta.Descripcion);
+            }
         }
     }
 }

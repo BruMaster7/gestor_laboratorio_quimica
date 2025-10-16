@@ -18,6 +18,32 @@ namespace Persistencia
             conexion = new Conexion();
         }
 
+        public Accesorio ObtenerAccesorioPorId(int id)
+        {
+            Accesorio accesorio = null;
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT idAccesorio, nombre, descripcion, stockActual, ubicacion FROM Accesorio WHERE idAccesorio = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@id", id);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                        accesorio = Mapear(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener accesorio por ID: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return accesorio;
+        }
+
         // 🔎 Insertar un nuevo accesorio
         public void Insertar(Accesorio a)
         {
@@ -53,7 +79,7 @@ namespace Persistencia
             try
             {
                 conexion.AbrirConexion();
-                string sql = "SELECT nombre, descripcion, stockActual, ubicacion FROM Accesorio";
+                string sql = "SELECT idAccesorio, nombre, descripcion, stockActual, ubicacion FROM Accesorio";
                 MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
 
                 using (var reader = cmd.ExecuteReader())
@@ -103,6 +129,60 @@ namespace Persistencia
             return accesorio;
         }
 
+        public List<Accesorio> BuscarPorNombre(string filtro)
+        {
+            var lista = new List<Accesorio>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = @"SELECT idAccesorio, nombre, descripcion, stockActual, ubicacion
+                       FROM Accesorio
+                       WHERE nombre LIKE @filtro";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%"); // contiene
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(Mapear(reader));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar accesorios: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+                public List<Accesorio> ObtenerAccesoriosSinStock()
+        {
+            var lista = new List<Accesorio>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT * FROM Accesorio WHERE stockActual <= 0";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(Mapear(reader));
+                    }
+                }
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
         // 🔎 Actualizar accesorio
         public void Actualizar(Accesorio a)
         {
@@ -110,16 +190,17 @@ namespace Persistencia
             {
                 conexion.AbrirConexion();
                 string sql = @"UPDATE Accesorio SET 
-                                  descripcion = @descripcion,
-                                  stockActual = @stockActual,
-                                  ubicacion = @ubicacion
-                               WHERE nombre = @nombre";
+                          nombre = @nombre,
+                          descripcion = @descripcion,
+                          stockActual = @stockActual,
+                          ubicacion = @ubicacion
+                       WHERE idAccesorio = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
-
+                cmd.Parameters.AddWithValue("@nombre", a.Nombre);
                 cmd.Parameters.AddWithValue("@descripcion", a.Descripcion);
                 cmd.Parameters.AddWithValue("@stockActual", a.StockActual);
                 cmd.Parameters.AddWithValue("@ubicacion", a.Ubicacion);
-                cmd.Parameters.AddWithValue("@nombre", a.Nombre);
+                cmd.Parameters.AddWithValue("@id", a.IdAccesorio);
 
                 cmd.ExecuteNonQuery();
             }
@@ -132,6 +213,7 @@ namespace Persistencia
                 conexion.CerrarConexion();
             }
         }
+
 
         // 🔎 Eliminar accesorio
         public void Eliminar(string nombre)
@@ -155,15 +237,40 @@ namespace Persistencia
             }
         }
 
+        public bool ExistePorNombre(string nombre)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT COUNT(*) FROM Accesorio WHERE nombre = @nombre";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al verificar accesorio: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+
         // 🔧 Mapear accesorio desde reader
         private Accesorio Mapear(MySqlDataReader reader)
         {
             return new Accesorio
             {
+                IdAccesorio = reader.GetInt32("idAccesorio"),
                 Nombre = reader.GetString("nombre"),
                 Descripcion = reader.GetString("descripcion"),
                 StockActual = reader.GetInt32("stockActual"),
-                Ubicacion = reader.GetString("ubicacion")
+                Ubicacion = reader.GetString("ubicacion"),
             };
         }
     }

@@ -10,16 +10,15 @@ namespace Dominio
     public class SustanciaService
     {
         private SustanciaDAO dao;
+        private AlertaService alerta = new AlertaService();
 
         public SustanciaService()
         {
             dao = new SustanciaDAO();
         }
 
-        // Agregar nueva sustancia
         public void AgregarSustancia(Sustancia s)
         {
-            // Validaciones de negocio antes de persistir
             if (string.IsNullOrWhiteSpace(s.Nombre))
                 throw new ArgumentException("El nombre de la sustancia es obligatorio.");
 
@@ -29,45 +28,57 @@ namespace Dominio
             if (s.FechaVencimiento <= s.FechaIngreso)
                 throw new ArgumentException("La fecha de vencimiento debe ser posterior a la de ingreso.");
 
-            // Pasamos al DAO para guardar en BD
             dao.Insertar(s);
+            alerta.GenerarYGuardarAlertas();
         }
 
-        // Obtener todas
         public List<Sustancia> ObtenerTodas()
         {
             return dao.ObtenerTodas();
         }
 
-        // Obtener una por ID
         public Sustancia ObtenerPorId(int id)
         {
             return dao.ObtenerPorId(id);
         }
 
-        // Actualizar
         public void Actualizar(Sustancia s)
         {
             dao.Actualizar(s);
+            alerta.GenerarYGuardarAlertas();
         }
 
-        // Eliminar
         public void Eliminar(int id)
         {
             dao.Eliminar(id);
+            alerta.GenerarYGuardarAlertas();
         }
 
-        // Obtener críticas
         public List<Sustancia> ObtenerCriticas()
         {
             return dao.ObtenerCriticas();
         }
 
-        // Verificar compatibilidad
         public bool EsCompatible(int id1, int id2)
         {
             return dao.EsCompatible(id1, id2);
         }
+
+        public List<Sustancia> Buscar(string nombre,string categoria, string ubicacion)
+        {
+            return dao.Buscar(nombre, categoria, ubicacion);
+        }
+
+        public List<string> ObtenerCategorias()
+        {
+            return dao.ObtenerCategorias();
+        }
+
+        public List<string> ObtenerUbicaciones ()
+        {
+            return dao.ObtenerUbicaciones();
+        }
+
     }
 
 }

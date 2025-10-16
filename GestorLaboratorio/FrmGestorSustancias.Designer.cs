@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             cmbCategoriaFiltro = new ComboBox();
             label29 = new Label();
-            label28 = new Label();
+            ubiLabel = new Label();
             label27 = new Label();
             label26 = new Label();
             txtFiltroNombre = new TextBox();
-            cmbStockFiltro = new ComboBox();
+            cmbUbiFiltro = new ComboBox();
             dgvSus = new DataGridView();
-            NombreSus = new DataGridViewTextBoxColumn();
-            CategoríaSus = new DataGridViewTextBoxColumn();
-            StockActSus = new DataGridViewTextBoxColumn();
             btnEliminarGestionSus = new Button();
             pictureBox2 = new PictureBox();
             label14 = new Label();
@@ -70,6 +67,8 @@
             label25 = new Label();
             dtpFechaIngGestionSus = new DateTimePicker();
             label1 = new Label();
+            btnFiltrar = new Button();
+            btnSinFiltro = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvSus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudStockAGestorSus).BeginInit();
@@ -81,7 +80,7 @@
             cmbCategoriaFiltro.BackColor = Color.LightGreen;
             cmbCategoriaFiltro.FormattingEnabled = true;
             cmbCategoriaFiltro.Items.AddRange(new object[] { "Orgánico", "Ácido", "Base", "Sal", "Vidrio" });
-            cmbCategoriaFiltro.Location = new Point(627, 425);
+            cmbCategoriaFiltro.Location = new Point(455, 428);
             cmbCategoriaFiltro.Margin = new Padding(4, 3, 4, 3);
             cmbCategoriaFiltro.Name = "cmbCategoriaFiltro";
             cmbCategoriaFiltro.Size = new Size(107, 21);
@@ -92,31 +91,31 @@
             label29.AutoSize = true;
             label29.BackColor = Color.Transparent;
             label29.ForeColor = SystemColors.ButtonFace;
-            label29.Location = new Point(431, 431);
+            label29.Location = new Point(259, 434);
             label29.Margin = new Padding(4, 0, 4, 0);
             label29.Name = "label29";
             label29.Size = new Size(61, 13);
             label29.TabIndex = 99;
             label29.Text = "Filtrar por:";
             // 
-            // label28
+            // ubiLabel
             // 
-            label28.AutoSize = true;
-            label28.BackColor = Color.Transparent;
-            label28.ForeColor = SystemColors.ButtonFace;
-            label28.Location = new Point(755, 410);
-            label28.Margin = new Padding(4, 0, 4, 0);
-            label28.Name = "label28";
-            label28.Size = new Size(73, 13);
-            label28.TabIndex = 98;
-            label28.Text = "Estado Stock";
+            ubiLabel.AutoSize = true;
+            ubiLabel.BackColor = Color.Transparent;
+            ubiLabel.ForeColor = SystemColors.ButtonFace;
+            ubiLabel.Location = new Point(583, 413);
+            ubiLabel.Margin = new Padding(4, 0, 4, 0);
+            ubiLabel.Name = "ubiLabel";
+            ubiLabel.Size = new Size(58, 13);
+            ubiLabel.TabIndex = 98;
+            ubiLabel.Text = "Ubicacion";
             // 
             // label27
             // 
             label27.AutoSize = true;
             label27.BackColor = Color.Transparent;
             label27.ForeColor = SystemColors.ButtonFace;
-            label27.Location = new Point(649, 409);
+            label27.Location = new Point(477, 412);
             label27.Margin = new Padding(4, 0, 4, 0);
             label27.Name = "label27";
             label27.Size = new Size(57, 13);
@@ -128,7 +127,7 @@
             label26.AutoSize = true;
             label26.BackColor = Color.Transparent;
             label26.ForeColor = SystemColors.ButtonFace;
-            label26.Location = new Point(531, 409);
+            label26.Location = new Point(359, 412);
             label26.Margin = new Padding(4, 0, 4, 0);
             label26.Name = "label26";
             label26.Size = new Size(50, 13);
@@ -140,72 +139,53 @@
             txtFiltroNombre.BackColor = Color.LightGreen;
             txtFiltroNombre.BorderStyle = BorderStyle.None;
             txtFiltroNombre.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtFiltroNombre.Location = new Point(500, 426);
+            txtFiltroNombre.Location = new Point(328, 429);
             txtFiltroNombre.Margin = new Padding(4, 3, 4, 3);
             txtFiltroNombre.Name = "txtFiltroNombre";
             txtFiltroNombre.Size = new Size(119, 20);
             txtFiltroNombre.TabIndex = 95;
             // 
-            // cmbStockFiltro
+            // cmbUbiFiltro
             // 
-            cmbStockFiltro.BackColor = Color.LightGreen;
-            cmbStockFiltro.FormattingEnabled = true;
-            cmbStockFiltro.Items.AddRange(new object[] { "Inflamable", "Tóxica", "Corrosiva", "Explosiva" });
-            cmbStockFiltro.Location = new Point(742, 425);
-            cmbStockFiltro.Margin = new Padding(4, 3, 4, 3);
-            cmbStockFiltro.Name = "cmbStockFiltro";
-            cmbStockFiltro.Size = new Size(103, 21);
-            cmbStockFiltro.TabIndex = 94;
+            cmbUbiFiltro.BackColor = Color.LightGreen;
+            cmbUbiFiltro.FormattingEnabled = true;
+            cmbUbiFiltro.Items.AddRange(new object[] { "Inflamable", "Tóxica", "Corrosiva", "Explosiva" });
+            cmbUbiFiltro.Location = new Point(570, 428);
+            cmbUbiFiltro.Margin = new Padding(4, 3, 4, 3);
+            cmbUbiFiltro.Name = "cmbUbiFiltro";
+            cmbUbiFiltro.Size = new Size(103, 21);
+            cmbUbiFiltro.TabIndex = 94;
             // 
             // dgvSus
             // 
-            dataGridViewCellStyle4.BackColor = Color.PaleGreen;
-            dgvSus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.PaleGreen;
+            dgvSus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvSus.BackgroundColor = Color.FromArgb(0, 64, 0);
             dgvSus.BorderStyle = BorderStyle.Fixed3D;
             dgvSus.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.LimeGreen;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvSus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.LimeGreen;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvSus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvSus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSus.Columns.AddRange(new DataGridViewColumn[] { NombreSus, CategoríaSus, StockActSus });
             dgvSus.Location = new Point(511, 12);
             dgvSus.Margin = new Padding(4, 3, 4, 3);
             dgvSus.Name = "dgvSus";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.LimeGreen;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvSus.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.LimeGreen;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvSus.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvSus.RowHeadersVisible = false;
-            dgvSus.Size = new Size(328, 391);
+            dgvSus.Size = new Size(630, 391);
             dgvSus.TabIndex = 93;
-            // 
-            // NombreSus
-            // 
-            NombreSus.HeaderText = "Nombre";
-            NombreSus.Name = "NombreSus";
-            NombreSus.Width = 150;
-            // 
-            // CategoríaSus
-            // 
-            CategoríaSus.HeaderText = "Categoría";
-            CategoríaSus.Name = "CategoríaSus";
-            CategoríaSus.Width = 120;
-            // 
-            // StockActSus
-            // 
-            StockActSus.HeaderText = "Stock Act";
-            StockActSus.Name = "StockActSus";
-            StockActSus.Width = 55;
             // 
             // btnEliminarGestionSus
             // 
@@ -220,6 +200,7 @@
             btnEliminarGestionSus.TabIndex = 92;
             btnEliminarGestionSus.Text = "Eliminar";
             btnEliminarGestionSus.UseVisualStyleBackColor = false;
+            btnEliminarGestionSus.Click += btnEliminarGestionSus_Click;
             // 
             // pictureBox2
             // 
@@ -295,6 +276,7 @@
             btnCambiarSus.TabIndex = 88;
             btnCambiarSus.Text = "Cambiar";
             btnCambiarSus.UseVisualStyleBackColor = false;
+            btnCambiarSus.Click += btnCambiarSus_Click;
             // 
             // txtNombreGestorSus
             // 
@@ -538,21 +520,52 @@
             label1.TabIndex = 101;
             label1.Text = "Gestor de sustancias";
             // 
+            // btnFiltrar
+            // 
+            btnFiltrar.BackColor = Color.Teal;
+            btnFiltrar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrar.FlatStyle = FlatStyle.Popup;
+            btnFiltrar.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnFiltrar.ForeColor = SystemColors.ButtonHighlight;
+            btnFiltrar.Location = new Point(695, 420);
+            btnFiltrar.Margin = new Padding(4, 3, 4, 3);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(110, 34);
+            btnFiltrar.TabIndex = 102;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = false;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // btnSinFiltro
+            // 
+            btnSinFiltro.BackColor = Color.FromArgb(0, 0, 64);
+            btnSinFiltro.FlatStyle = FlatStyle.Popup;
+            btnSinFiltro.ForeColor = Color.White;
+            btnSinFiltro.Location = new Point(828, 422);
+            btnSinFiltro.Name = "btnSinFiltro";
+            btnSinFiltro.Size = new Size(142, 32);
+            btnSinFiltro.TabIndex = 111;
+            btnSinFiltro.Text = "LIMPIAR FILTROS";
+            btnSinFiltro.UseVisualStyleBackColor = false;
+            btnSinFiltro.Click += btnSinFiltro_Click;
+            // 
             // FrmGestorSustancias
             // 
             AutoScaleDimensions = new SizeF(7F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.BackgreenDark;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(850, 461);
+            ClientSize = new Size(1140, 622);
+            Controls.Add(btnSinFiltro);
+            Controls.Add(btnFiltrar);
             Controls.Add(label1);
             Controls.Add(cmbCategoriaFiltro);
             Controls.Add(label29);
-            Controls.Add(label28);
+            Controls.Add(ubiLabel);
             Controls.Add(label27);
             Controls.Add(label26);
             Controls.Add(txtFiltroNombre);
-            Controls.Add(cmbStockFiltro);
+            Controls.Add(cmbUbiFiltro);
             Controls.Add(dgvSus);
             Controls.Add(btnEliminarGestionSus);
             Controls.Add(pictureBox2);
@@ -591,6 +604,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmGestorSustancias";
             WindowState = FormWindowState.Maximized;
+            Load += FrmGestorSustancias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSus).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudStockAGestorSus).EndInit();
@@ -604,11 +618,11 @@
 
         private System.Windows.Forms.ComboBox cmbCategoriaFiltro;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label ubiLabel;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtFiltroNombre;
-        private System.Windows.Forms.ComboBox cmbStockFiltro;
+        private System.Windows.Forms.ComboBox cmbUbiFiltro;
         private System.Windows.Forms.DataGridView dgvSus;
         private System.Windows.Forms.Button btnEliminarGestionSus;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -638,8 +652,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DateTimePicker dtpFechaIngGestionSus;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoríaSus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StockActSus;
+        private Button btnFiltrar;
+        private Button btnSinFiltro;
     }
 }

@@ -12,6 +12,7 @@ namespace Dominio
         private static SistemaFacade instancia;   // Singleton
         private SustanciaService sustanciaService;
         private AccesorioService accesorioService;
+        private AlertaService alertaService = new AlertaService();
 
 
         // 🔒 Constructor privado (evita que se pueda instanciar fuera)
@@ -21,7 +22,7 @@ namespace Dominio
             accesorioService = new AccesorioService();
         }
 
-        // 🟢 Acceso único a la instancia
+        // Acceso único a la instancia
         public static SistemaFacade Instancia
         {
             get
@@ -32,7 +33,7 @@ namespace Dominio
             }
         }
 
-        // Métodos que exponen la lógica del sistema
+        // Metodos Sustancia
         public void AgregarSustancia(Sustancia s)
         {
             sustanciaService.AgregarSustancia(s);
@@ -68,14 +69,41 @@ namespace Dominio
             return sustanciaService.EsCompatible(id1, id2);
         }
 
+        public List<Sustancia> Buscar(string nombre, string categoria, string ubicacion)
+        {
+            return sustanciaService.Buscar(nombre, categoria, ubicacion);
+        }
+
+        public List<string> ObtenerCategorias()
+        {
+            return sustanciaService.ObtenerCategorias();
+        }
+
+        public List<string> ObtenerUbicaciones()
+        {
+            return sustanciaService.ObtenerUbicaciones();
+        }
+
         // -----------------------------
         // Accesorios
         // -----------------------------
+
+        public Accesorio ObtenerAccesorioPorId(int id) => accesorioService.ObtenerPorId(id);
         public void AgregarAccesorio(Accesorio a) => accesorioService.AgregarAccesorio(a);
         public List<Accesorio> ObtenerAccesorios() => accesorioService.ObtenerTodos();
         public Accesorio ObtenerAccesorioPorNombre(string nombre) => accesorioService.ObtenerPorNombre(nombre);
         public void ActualizarAccesorio(Accesorio a) => accesorioService.ActualizarAccesorio(a);
         public void EliminarAccesorio(string nombre) => accesorioService.EliminarAccesorio(nombre);
+
+        public List<Accesorio> BuscarAccesoriosPorNombre(string nombre) => accesorioService.BuscarPorNombre(nombre);
+        public bool ExisteAccesorioPorNombre(string nombre) => accesorioService.ExistePorNombre(nombre);
+
+        // -----------------------------
+        // ALERTAS
+        // -----------------------------
+
+        public List<Alerta> ObtenerAlertas() => alertaService.ObtenerAlertasActuales();
+
     }
 
 }
