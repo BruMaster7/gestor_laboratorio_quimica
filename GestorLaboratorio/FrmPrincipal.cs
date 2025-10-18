@@ -27,13 +27,13 @@ namespace GestorLaboratorio
 
             // Configura el nuevo
             nuevo.MdiParent = this;
-           
+
             nuevo.Show();
         }
 
         private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          AbrirFormulario(new FrmAgenda());
+            AbrirFormulario(new FrmAgenda());
         }
 
         private void alertasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace GestorLaboratorio
             AbrirFormulario(new FrmHistorial());
         }
 
-      
+
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace GestorLaboratorio
 
         private void formularioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           AbrirFormulario(new FrmFormularios());
+            AbrirFormulario(new FrmFormularios());
         }
 
         private void gestionarExistentesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,6 +89,19 @@ namespace GestorLaboratorio
         private void añadirNuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmAltaAccesorios());
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Close();
+            }
+        }
+
+        private void gestionarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmGestionUsuarios());
         }
     }
 }

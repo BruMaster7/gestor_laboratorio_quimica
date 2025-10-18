@@ -13,6 +13,7 @@ namespace Dominio
         private SustanciaService sustanciaService;
         private AccesorioService accesorioService;
         private AlertaService alertaService = new AlertaService();
+        private usuarioService usuarioService;
 
 
         // 🔒 Constructor privado (evita que se pueda instanciar fuera)
@@ -20,6 +21,7 @@ namespace Dominio
         {
             sustanciaService = new SustanciaService();
             accesorioService = new AccesorioService();
+            usuarioService = new usuarioService();
         }
 
         // Acceso único a la instancia
@@ -104,6 +106,37 @@ namespace Dominio
 
         public List<Alerta> ObtenerAlertas() => alertaService.ObtenerAlertasActuales();
 
+        //Usuarios
+        public void AgregarUsuario(Usuario nuevo)
+        {
+            usuarioService.AgregarUsuario(nuevo);
+
+        }
+
+        public void EliminarUsuario(string nombreUsuario)
+        {
+            usuarioService.EliminarUsuario(nombreUsuario);
+        }
+
+        public List<Usuario> ObtenerUsuarios()
+        {
+            return usuarioService.ObtenerUsuarios();
+        }
+
+        public bool Login(string usuarioValido, string claveValida)
+        {
+            return usuarioService.Login(usuarioValido, claveValida);
+        }
+
+        public bool UsuarioLogeadoEsAdmin(string usuario)
+        {
+            return usuarioService.EsAdmin(usuario);
+        }
+
+        public bool UsuarioLogeadoEsAdmin(string v, object usuarioValido)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

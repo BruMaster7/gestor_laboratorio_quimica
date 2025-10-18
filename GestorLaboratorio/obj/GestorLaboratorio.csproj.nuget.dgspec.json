@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj": {}
+    "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\obj\\",
+        "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj",
+        "packagesPath": "C:\\Users\\53351951\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\53351951\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,17 +25,18 @@
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj"
+              "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj"
               },
-              "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj": {
-                "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj"
+              "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj": {
+                "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj"
               }
             }
           }
@@ -71,24 +72,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\53351951\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\53351951\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -96,7 +97,8 @@
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -135,24 +137,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj": {
+    "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj",
+        "projectUniqueName": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj",
         "projectName": "GestorLaboratorio",
-        "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\",
+        "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\GestorLaboratorio.csproj",
+        "packagesPath": "C:\\Users\\53351951\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\53351951\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -160,14 +162,15 @@
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj"
+              "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Dominio\\Dominio.csproj"
               }
             }
           }
@@ -206,24 +209,24 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj": {
+    "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj",
+        "projectUniqueName": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj",
         "projectName": "Persistencia",
-        "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\obj\\",
+        "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\Persistencia.csproj",
+        "packagesPath": "C:\\Users\\53351951\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\53351951\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -231,14 +234,15 @@
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj"
+              "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\53351951\\Desktop\\gestor_laboratorio_quimica\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -274,7 +278,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

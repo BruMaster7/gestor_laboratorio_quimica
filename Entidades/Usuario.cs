@@ -8,9 +8,9 @@ namespace Entidades
 {
     public class Usuario
     {
-        public int IdUsuario { get; set; }
-        public string Nombre { get; set; }
-        public string Contrasena { get; set; }
-        public string Rol { get; set; }  // Puede ser string o Enum
+        public int idUsuario { get; set; }
+        public string nombre { get; set; }
+        public string contrasena { get; set; }
+        public int idRol { get; set; }  // Puede ser string o Enum
     }
 }

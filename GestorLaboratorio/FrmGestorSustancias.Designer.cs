@@ -186,6 +186,7 @@
             dgvSus.RowHeadersVisible = false;
             dgvSus.Size = new Size(630, 391);
             dgvSus.TabIndex = 93;
+            dgvSus.CellContentClick += dgvSus_CellContentClick;
             // 
             // btnEliminarGestionSus
             // 

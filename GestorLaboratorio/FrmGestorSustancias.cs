@@ -228,6 +228,11 @@ namespace GestorLaboratorio
             // Recargar todas las sustancias
             CargarSustancias();
         }
+
+        private void dgvSus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

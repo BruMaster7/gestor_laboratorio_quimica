@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,10 +24,10 @@ namespace GestorLaboratorio
         private void button1_Click(object sender, EventArgs e)
         {
             // Datos fijos temporales
-            string usuarioValido = "admin";
-            string claveValida = "a123";
-
-            if (txtUsuario.Text == usuarioValido && txtClave.Text == claveValida)
+            string usuarioValido = txtUsuario.Text;
+            string claveValida = txtClave.Text;
+            bool usuarioLogeado = SistemaFacade.Instancia.Login(usuarioValido, claveValida);
+            if (usuarioLogeado)
             {
                 // Credenciales correctas
                 FrmPrincipal frmPrincipal = new FrmPrincipal();

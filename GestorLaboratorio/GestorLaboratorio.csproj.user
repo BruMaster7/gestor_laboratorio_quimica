@@ -20,6 +20,9 @@
     <Compile Update="FrmGestionAccesorios.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmGestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmGestorSustancias.cs">
       <SubType>Form</SubType>
     </Compile>
