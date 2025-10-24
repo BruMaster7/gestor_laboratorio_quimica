@@ -137,6 +137,11 @@ namespace Dominio
         {
             throw new NotImplementedException();
         }
+
+        public Usuario ObtenerUsuarioPorNombre(string nombreUsuario)
+        {
+            return usuarioService.ObtenerUsuarioPorNombre(nombreUsuario);
+        }
     }
 
 }

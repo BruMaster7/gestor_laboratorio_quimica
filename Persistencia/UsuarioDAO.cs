@@ -154,6 +154,42 @@ namespace Dominio
                 conexion.CerrarConexion();
             }
         }
+
+        public Usuario ObtenerUsuarioPorNombre(string nombreUsuario)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT idUsuario, nombre, contrasena, idRol FROM usuario WHERE nombre = @nombre";
+                using var cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@nombre", nombreUsuario);
+                using MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Usuario usuario = new Usuario
+                    {
+                        idUsuario = reader.GetInt32("idUsuario"),
+                        nombre = reader.GetString("nombre"),
+                        contrasena = reader.GetString("contrasena"),
+                        idRol = reader.GetInt32("idRol")
+                    };
+                    return usuario;
+                }
+                else
+                {
+                    return null; // No se encontró el usuario
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Propagar excepción con detalle de MySQL
+                throw new Exception($"Error MySQL al obtener usuario por nombre (Código {ex.Number}): {ex.Message}", ex);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
     }
 }
 

@@ -50,5 +50,12 @@ namespace Dominio
         {
             return dao.UsuarioEsAdmin(usuario);
         }
+
+        public Usuario ObtenerUsuarioPorNombre(string nombreUsuario)
+        {
+            if (string.IsNullOrWhiteSpace(nombreUsuario))
+                throw new ArgumentException("El nombre de usuario es obligatorio.");
+            return dao.ObtenerUsuarioPorNombre(nombreUsuario);
+        }
     }
-    }
+}

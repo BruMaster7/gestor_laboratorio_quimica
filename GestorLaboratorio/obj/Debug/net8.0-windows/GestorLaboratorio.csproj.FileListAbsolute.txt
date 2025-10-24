@@ -143,3 +143,4 @@ C:\Users\53351951\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug
 C:\Users\53351951\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\GestorLaboratorio.genruntimeconfig.cache
 C:\Users\53351951\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\ref\GestorLaboratorio.dll
 C:\Users\53351951\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\GestorLaboratorio.FrmGestionUsuarios.resources
+C:\Users\bruno\Desktop\gestor_laboratorio_quimica\GestorLaboratorio\obj\Debug\net8.0-windows\GestorLaboratorio.FrmGestionUsuarios.resources
