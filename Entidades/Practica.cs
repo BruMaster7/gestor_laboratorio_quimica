@@ -10,7 +10,7 @@ namespace Entidades
     {
         public int IdPractica { get; set; }
         public DateTime Fecha { get; set; }
-        public int ResponsableId { get; set; }
+        public string Docente { get; set; } // ahora varchar tomado del textbox
         public string Objetivo { get; set; }
         public int CantidadEstudiantes { get; set; }
     }

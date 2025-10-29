@@ -15,6 +15,9 @@ namespace Dominio
         private AlertaService alertaService = new AlertaService();
         private usuarioService usuarioService;
 
+        // Nuevo servicio para prácticas
+        private PracticaService practicaService = new PracticaService();
+
 
         // 🔒 Constructor privado (evita que se pueda instanciar fuera)
         private SistemaFacade()
@@ -99,6 +102,17 @@ namespace Dominio
 
         public List<Accesorio> BuscarAccesoriosPorNombre(string nombre) => accesorioService.BuscarPorNombre(nombre);
         public bool ExisteAccesorioPorNombre(string nombre) => accesorioService.ExistePorNombre(nombre);
+
+        // -----------------------------
+        // PRACTICAS / SOLICITUDES
+        // -----------------------------
+        public int AgregarPractica(Practica p) => practicaService.AgregarPractica(p);
+        public List<Practica> ObtenerPracticas() => practicaService.ObtenerPracticas();
+        public List<SolicitudPractica> ObtenerSolicitudesPractica() => practicaService.ObtenerSolicitudes();
+        public SolicitudPractica ObtenerSolicitudPorId(int id) => practicaService.ObtenerSolicitudPorId(id);
+        public void AprobarSolicitud(int idSolicitud) => practicaService.AprobarSolicitud(idSolicitud);
+        public void RechazarSolicitud(int idSolicitud) => practicaService.RechazarSolicitud(idSolicitud);
+        public void EliminarPractica(int idPractica) => practicaService.EliminarPractica(idPractica);
 
         // -----------------------------
         // ALERTAS
