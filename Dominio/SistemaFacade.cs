@@ -22,7 +22,7 @@ namespace Dominio
         // 🔒 Constructor privado (evita que se pueda instanciar fuera)
         private SistemaFacade()
         {
-            sustanciaService = new SustanciaService();
+            sustanciaService = new SustanciaService(SesionActual.NombreUsuario);
             accesorioService = new AccesorioService();
             usuarioService = new usuarioService();
         }

@@ -10,13 +10,15 @@ namespace Dominio
 {
     public class AccesorioService
     {
-        private AccesorioDAO accesorioDAO;
-        private AlertaService alerta = new AlertaService();
+        private readonly AccesorioDAO accesorioDAO;
+        private readonly AlertaService alerta;
+        private readonly HistorialDAO historialDAO;
 
         public AccesorioService()
         {
             accesorioDAO = new AccesorioDAO();
-
+            alerta = new AlertaService();
+            historialDAO = new HistorialDAO();
         }
 
         public Accesorio ObtenerPorId(int id)
@@ -33,19 +35,17 @@ namespace Dominio
 
             accesorioDAO.Insertar(a);
             alerta.GenerarYGuardarAlertas();
-            
+
+            // 🔹 Registrar en historial
+            historialDAO.RegistrarMovimiento(SesionActual.NombreUsuario, $"Agregó Accesorio: {a.Nombre}");
         }
 
-        public List<Accesorio> ObtenerTodos()
-        {
-            return accesorioDAO.ObtenerTodos();
-        }
+        public List<Accesorio> ObtenerTodos() => accesorioDAO.ObtenerTodos();
 
         public Accesorio ObtenerPorNombre(string nombre)
         {
             if (string.IsNullOrWhiteSpace(nombre))
                 throw new ArgumentException("Debe especificar un nombre válido.");
-
             return accesorioDAO.ObtenerPorNombre(nombre);
         }
 
@@ -61,15 +61,12 @@ namespace Dominio
             if (string.IsNullOrWhiteSpace(a.Nombre))
                 throw new ArgumentException("El nombre del accesorio no puede estar vacío.");
 
-            // Obtener estado previo para comparar alertas
             var existente = accesorioDAO.ObtenerAccesorioPorId(a.IdAccesorio);
             if (existente == null)
                 throw new ArgumentException("El accesorio no existe.");
 
-            // Actualizar en BD
             accesorioDAO.Actualizar(a);
 
-            // Si antes estaba sin stock (<=0) y ahora tiene stock (>0), desactivar alertas de "Accesorio sin stock"
             bool estabaSinStock = existente.StockActual <= 0;
             bool ahoraTieneStock = a.StockActual > 0;
             if (estabaSinStock && ahoraTieneStock)
@@ -78,8 +75,10 @@ namespace Dominio
                 alertaDao.DesactivarAlertasPorAccesorioNombre(existente.Nombre, "Accesorio sin stock");
             }
 
-            // Regenerar alertas globales
             alerta.GenerarYGuardarAlertas();
+
+            // 🔹 Registrar en historial
+            historialDAO.RegistrarMovimiento(SesionActual.NombreUsuario, $"Actualizó Accesorio: {a.Nombre}");
         }
 
         public void EliminarAccesorio(string nombre)
@@ -89,11 +88,12 @@ namespace Dominio
 
             accesorioDAO.Eliminar(nombre);
 
-            // Eliminar alertas asociadas a este accesorio (descripcion contiene el nombre)
             var alertaDao = new AlertaDAO();
             alertaDao.EliminarPorAccesorioNombre(nombre, "Accesorio sin stock");
-
             alerta.GenerarYGuardarAlertas();
+
+            // 🔹 Registrar en historial
+            historialDAO.RegistrarMovimiento(SesionActual.NombreUsuario, $"Eliminó Accesorio: {nombre}");
         }
 
         public bool ExistePorNombre(string nombre)

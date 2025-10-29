@@ -31,7 +31,8 @@ namespace GestorLaboratorio
             if (usuarioLogeado)
             {
                 Usuario usuarioLogueado = SistemaFacade.Instancia.ObtenerUsuarioPorNombre(usuarioValido);
-                // Credenciales correctas
+                // Credenciales
+                SesionActual.UsuarioLogueado = usuarioLogueado;
                 FrmPrincipal frmPrincipal = new FrmPrincipal(usuarioLogueado);
                 frmPrincipal.Show();
                 this.Hide(); // Ocultar el formulario de login
