@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Persistencia;
 
 namespace Dominio
 {
@@ -44,13 +45,45 @@ namespace Dominio
 
         public void Actualizar(Sustancia s)
         {
+            // Obtener estado previo para comparar cambios relevantes a alertas
+            var existente = dao.ObtenerPorId(s.IdSustancia);
+            if (existente == null)
+                throw new ArgumentException("La sustancia no existe.");
+
+            // Actualizar en la BD
             dao.Actualizar(s);
+
+            var alertaDao = new AlertaDAO();
+
+            // Si antes estaba en stock crítico y ahora el stock superó el mínimo, desactivar alerta de stock crítico
+            bool estabaCritico = existente.StockActual <= existente.StockMinimo;
+            bool ahoraNoCritico = s.StockActual > s.StockMinimo;
+            if (estabaCritico && ahoraNoCritico)
+            {
+                alertaDao.DesactivarAlertasPorSustanciaYTipo(s.IdSustancia, "Sustancia con stock crítico");
+            }
+
+            // Si antes estaba vencida y ahora ya no está vencida, desactivar alerta de vencimiento
+            bool estabaVencida = existente.FechaVencimiento < DateTime.Now;
+            bool ahoraNoVencida = s.FechaVencimiento >= DateTime.Now;
+            if (estabaVencida && ahoraNoVencida)
+            {
+                alertaDao.DesactivarAlertasPorSustanciaYTipo(s.IdSustancia, "Sustancia vencida");
+            }
+
+            // Regenerar alertas globales (insertará nuevas donde corresponda y evita duplicados)
             alerta.GenerarYGuardarAlertas();
         }
 
         public void Eliminar(int id)
         {
             dao.Eliminar(id);
+
+            // Eliminar/desactivar alertas asociadas a la sustancia
+            var alertaDao = new AlertaDAO();
+            alertaDao.EliminarPorSustancia(id);
+
+            // Regenerar alertas globales por si cambió el contexto
             alerta.GenerarYGuardarAlertas();
         }
 

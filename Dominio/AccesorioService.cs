@@ -61,7 +61,24 @@ namespace Dominio
             if (string.IsNullOrWhiteSpace(a.Nombre))
                 throw new ArgumentException("El nombre del accesorio no puede estar vacío.");
 
+            // Obtener estado previo para comparar alertas
+            var existente = accesorioDAO.ObtenerAccesorioPorId(a.IdAccesorio);
+            if (existente == null)
+                throw new ArgumentException("El accesorio no existe.");
+
+            // Actualizar en BD
             accesorioDAO.Actualizar(a);
+
+            // Si antes estaba sin stock (<=0) y ahora tiene stock (>0), desactivar alertas de "Accesorio sin stock"
+            bool estabaSinStock = existente.StockActual <= 0;
+            bool ahoraTieneStock = a.StockActual > 0;
+            if (estabaSinStock && ahoraTieneStock)
+            {
+                var alertaDao = new AlertaDAO();
+                alertaDao.DesactivarAlertasPorAccesorioNombre(existente.Nombre, "Accesorio sin stock");
+            }
+
+            // Regenerar alertas globales
             alerta.GenerarYGuardarAlertas();
         }
 
@@ -71,6 +88,11 @@ namespace Dominio
                 throw new ArgumentException("Debe especificar un nombre válido.");
 
             accesorioDAO.Eliminar(nombre);
+
+            // Eliminar alertas asociadas a este accesorio (descripcion contiene el nombre)
+            var alertaDao = new AlertaDAO();
+            alertaDao.EliminarPorAccesorioNombre(nombre, "Accesorio sin stock");
+
             alerta.GenerarYGuardarAlertas();
         }
 
