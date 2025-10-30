@@ -19,6 +19,10 @@ namespace GestorLaboratorio
             if (usuarioLogueado.idRol != 1)
             {
                 gestionarUsuariosToolStripMenuItem.Visible = false;
+                alertasToolStripMenuItem.Visible = false;
+                formularioToolStripMenuItem.Visible = false;
+                historialToolStripMenuItem.Visible = false;
+                gestiónToolStripMenuItem.Visible = false;
             }
         }
 
@@ -107,6 +111,11 @@ namespace GestorLaboratorio
         private void gestionarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmGestionUsuarios());
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

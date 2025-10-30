@@ -49,9 +49,9 @@
             toolStripMenuItem5 = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem6 = new ToolStripMenuItem();
-            pictureBox1 = new PictureBox();
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -207,20 +207,6 @@
             toolStripMenuItem6.Size = new Size(140, 31);
             toolStripMenuItem6.Text = "------------";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.LightGreen;
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Image = Properties.Resources.ProbetaLogo;
-            pictureBox1.Location = new Point(-7, 502);
-            pictureBox1.Margin = new Padding(4, 3, 4, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(152, 172);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // gestionarUsuariosToolStripMenuItem
             // 
             gestionarUsuariosToolStripMenuItem.Font = new Font("Cooper Black", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -235,6 +221,20 @@
             toolStripMenuItem4.Name = "toolStripMenuItem4";
             toolStripMenuItem4.Size = new Size(140, 31);
             toolStripMenuItem4.Text = "------------";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.LightGreen;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Image = Properties.Resources.ProbetaLogo;
+            pictureBox1.Location = new Point(-7, 502);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(152, 172);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // FrmPrincipal
             // 
@@ -255,6 +255,7 @@
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmPrincipal";
+            Load += FrmPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
