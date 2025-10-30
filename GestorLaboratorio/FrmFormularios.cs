@@ -28,6 +28,11 @@ namespace GestorLaboratorio
         private void FrmFormularios_Load(object sender, EventArgs e)
         {
             CargarSolicitudes();
+            txtDocenteForms.ReadOnly = true;
+            txtFechaHoraForms.ReadOnly = true;
+            txtGrupoForms.ReadOnly = true;
+            txtDetallesForms.ReadOnly = true;
+
         }
 
         private void CargarSolicitudes()
@@ -86,6 +91,11 @@ namespace GestorLaboratorio
             {
                 MessageBox.Show("Seleccione una solicitud primero.");
             }
+        }
+
+        private void btnAprobarForms_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
