@@ -74,7 +74,7 @@ namespace GestorLaboratorio
         {
             try
             {
-                string nombreUsuario = txtnombreUsuario.Text.Trim();
+                string nombreUsuario = txtUsuarioAborrar.Text.Trim();
                 SistemaFacade.Instancia.EliminarUsuario(nombreUsuario);
                 MessageBox.Show("Usuario eliminado con éxito",
                                 "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
