@@ -44,8 +44,6 @@
             txtPracticaAgenda = new TextBox();
             label7 = new Label();
             btnAgregarAgenda = new Button();
-            btnModificarAgenda = new Button();
-            btnEliminarAgenda = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPracticasProg).BeginInit();
             SuspendLayout();
             // 
@@ -213,30 +211,6 @@
             btnAgregarAgenda.UseVisualStyleBackColor = false;
             btnAgregarAgenda.Click += btnAgregarAgenda_Click_1;
             // 
-            // btnModificarAgenda
-            // 
-            btnModificarAgenda.BackColor = Color.Olive;
-            btnModificarAgenda.FlatStyle = FlatStyle.Popup;
-            btnModificarAgenda.ForeColor = SystemColors.Control;
-            btnModificarAgenda.Location = new Point(407, 216);
-            btnModificarAgenda.Name = "btnModificarAgenda";
-            btnModificarAgenda.Size = new Size(106, 32);
-            btnModificarAgenda.TabIndex = 18;
-            btnModificarAgenda.Text = "Modificar";
-            btnModificarAgenda.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminarAgenda
-            // 
-            btnEliminarAgenda.BackColor = Color.Maroon;
-            btnEliminarAgenda.FlatStyle = FlatStyle.Popup;
-            btnEliminarAgenda.ForeColor = SystemColors.Control;
-            btnEliminarAgenda.Location = new Point(530, 216);
-            btnEliminarAgenda.Name = "btnEliminarAgenda";
-            btnEliminarAgenda.Size = new Size(106, 32);
-            btnEliminarAgenda.TabIndex = 19;
-            btnEliminarAgenda.Text = "Eliminar";
-            btnEliminarAgenda.UseVisualStyleBackColor = false;
-            // 
             // FrmAgenda
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -244,8 +218,6 @@
             BackgroundImage = Properties.Resources.BackgreenDark;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(784, 461);
-            Controls.Add(btnEliminarAgenda);
-            Controls.Add(btnModificarAgenda);
             Controls.Add(btnAgregarAgenda);
             Controls.Add(txtPracticaAgenda);
             Controls.Add(label7);
@@ -292,7 +264,5 @@
         private System.Windows.Forms.TextBox txtPracticaAgenda;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAgregarAgenda;
-        private System.Windows.Forms.Button btnModificarAgenda;
-        private System.Windows.Forms.Button btnEliminarAgenda;
     }
 }

@@ -13,5 +13,6 @@ namespace Entidades
         public string Descripcion { get; set; }
         public int StockActual { get; set; }
         public string Ubicacion { get; set; }
+        public string Categoria { get; set; }
     }
 }

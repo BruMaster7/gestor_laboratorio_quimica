@@ -24,6 +24,12 @@ namespace Dominio
             if (p.Fecha < DateTime.Now.AddHours(48))
                 throw new ArgumentException("La práctica debe solicitarse con al menos 48 horas de anticipación.");
 
+            // Validaciones de negocio: objetivo obligatorio y cantidad de estudiantes > 0
+            if (string.IsNullOrWhiteSpace(p.Objetivo))
+                throw new ArgumentException("La Práctica/Objetivo no puede estar vacía.");
+            if (p.CantidadEstudiantes <= 0)
+                throw new ArgumentException("La cantidad de estudiantes debe ser un número entero mayor que 0.");
+
             int id = practicaDAO.Insertar(p);
 
             // Generar solicitud

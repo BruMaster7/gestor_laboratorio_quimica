@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19fa7680fe04b70b56c1f87a0b65439ab52e35bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c7ea8c2f02a3f7083b71e6852359936532b620b")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

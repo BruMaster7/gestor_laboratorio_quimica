@@ -1,8 +1,6 @@
 using Entidades;
 using MySql.Data.MySqlClient;
 using Persistencia.Persistencia;
-using System;
-using System.Collections.Generic;
 
 namespace Persistencia
 {
@@ -143,7 +141,7 @@ namespace Persistencia
                 conexion.AbrirConexion();
                 string sql = @"
                     SELECT sp.idSolicitud, sp.idPractica, sp.fechaEnvio, sp.estado,
-                           p.fecha AS fechaPractica, p.objetivo, p.docente, p.cantidadEstudiantes
+                           p.fecha AS fechaPractica, p.objetivo, p.docente, p.cantidadEstudiantes, p.detalles
                     FROM SolicitudPractica sp
                     JOIN Practica p ON p.idPractica = sp.idPractica
                     WHERE sp.idSolicitud = @id";

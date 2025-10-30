@@ -42,7 +42,8 @@ namespace GestorLaboratorio
                 Nombre = nombre,
                 Descripcion = descripcion,
                 StockActual = stock,
-                Ubicacion = ubicacion
+                Ubicacion = ubicacion,
+                Categoria = categoria
             };
             try
             {

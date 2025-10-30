@@ -1,20 +1,22 @@
 ﻿using Dominio;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestorLaboratorio
 {
     public partial class FrmGestionAccesorios : Form
     {
         private int accesorioSeleccionadoId = -1;
+
+        // Lista única de categorías (mantener sincronizada con el alta)
+        private readonly string[] categoriasDisponibles = new[]
+        {
+            "Vidriería",
+            "Material metálico",
+            "Plásticos y descartables",
+            "Instrumentos de medición",
+            "Accesorios de calentamiento",
+            "Otros"
+        };
 
         public FrmGestionAccesorios()
         {
@@ -24,8 +26,8 @@ namespace GestorLaboratorio
 
         private void FrmGestionAccesorios_Load(object sender, EventArgs e)
         {
+            CargarCategorias();
             CargarAccesorios();
-
         }
 
         private void btnActualizarGestionAcc_Click(object sender, EventArgs e)
@@ -36,16 +38,26 @@ namespace GestorLaboratorio
                 return;
             }
 
+            // Validaciones consistentes con el alta
+            if (string.IsNullOrWhiteSpace(txtNombreGestionAcc.Text) ||
+                string.IsNullOrWhiteSpace(txtDescripcionGestionAcc.Text) ||
+                string.IsNullOrWhiteSpace(txtUbicacionGestionAcc.Text) ||
+                string.IsNullOrWhiteSpace(cmbCategoriaGestionAcc.Text))
+            {
+                MessageBox.Show("Por favor, complete Nombre, Descripción, Ubicación y Categoría.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
-
                 var accesorio = new Accesorio
                 {
                     IdAccesorio = accesorioSeleccionadoId,
                     Nombre = txtNombreGestionAcc.Text.Trim(),
                     Ubicacion = txtUbicacionGestionAcc.Text.Trim(),
                     StockActual = (int)nudStockGestionAcc.Value,
-                    Descripcion = txtDescripcionGestionAcc.Text.Trim()
+                    Descripcion = txtDescripcionGestionAcc.Text.Trim(),
+                    Categoria = cmbCategoriaGestionAcc.Text.Trim()
                 };
 
                 SistemaFacade.Instancia.ActualizarAccesorio(accesorio);
@@ -114,10 +126,39 @@ namespace GestorLaboratorio
 
                 accesorioSeleccionadoId = Convert.ToInt32(fila.Cells["IdAccesorio"].Value);
 
-                txtNombreGestionAcc.Text = fila.Cells["Nombre"].Value.ToString();
-                txtUbicacionGestionAcc.Text = fila.Cells["Ubicacion"].Value.ToString();
+                txtNombreGestionAcc.Text = fila.Cells["Nombre"].Value?.ToString() ?? "";
+                txtUbicacionGestionAcc.Text = fila.Cells["Ubicacion"].Value?.ToString() ?? "";
                 nudStockGestionAcc.Value = Convert.ToInt32(fila.Cells["StockActual"].Value);
-                txtDescripcionGestionAcc.Text = fila.Cells["Descripcion"].Value.ToString();
+                txtDescripcionGestionAcc.Text = fila.Cells["Descripcion"].Value?.ToString() ?? "";
+
+                // Intentar asignar categoría si la columna está presente en la grilla
+                try
+                {
+                    bool tieneColCategoria = dgvAccesorios.Columns.Cast<DataGridViewColumn>().Any(c => c.Name == "Categoria" || c.HeaderText == "Categoria");
+                    if (tieneColCategoria)
+                    {
+                        var valorCat = fila.Cells["Categoria"].Value?.ToString();
+                        if (!string.IsNullOrWhiteSpace(valorCat) && cmbCategoriaGestionAcc.Items.Contains(valorCat))
+                            cmbCategoriaGestionAcc.SelectedItem = valorCat;
+                        else if (!string.IsNullOrWhiteSpace(valorCat))
+                        {
+                            // Si la categoría viene de BD pero no está en el combo (caso raro), añadirla temporalmente y seleccionarla.
+                            cmbCategoriaGestionAcc.Items.Add(valorCat);
+                            cmbCategoriaGestionAcc.SelectedItem = valorCat;
+                        }
+                        else
+                            cmbCategoriaGestionAcc.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        // Si la grilla no contiene categoría, no podemos inferirla desde el DAO actual.
+                        cmbCategoriaGestionAcc.SelectedIndex = -1;
+                    }
+                }
+                catch
+                {
+                    cmbCategoriaGestionAcc.SelectedIndex = -1;
+                }
             }
         }
 
@@ -153,6 +194,7 @@ namespace GestorLaboratorio
                     txtUbicacionGestionAcc.Clear();
                     nudStockGestionAcc.Value = 0;
                     txtDescripcionGestionAcc.Clear();
+                    cmbCategoriaGestionAcc.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -161,6 +203,13 @@ namespace GestorLaboratorio
             }
 
         }
+
+        // Cargar categorías de forma centralizada y sin elemento vacío
+        private void CargarCategorias()
+        {
+            cmbCategoriaGestionAcc.Items.Clear();
+            cmbCategoriaGestionAcc.Items.AddRange(categoriasDisponibles);
+            cmbCategoriaGestionAcc.SelectedIndex = -1;
+        }
     }
 }
-

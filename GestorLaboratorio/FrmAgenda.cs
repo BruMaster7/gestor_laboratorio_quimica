@@ -66,12 +66,26 @@ namespace GestorLaboratorio
                     return;
                 }
 
+                // Validaciones adicionales: objetivo (práctica) y cantidad de estudiantes > 0
+                string objetivo = txtPracticaAgenda.Text.Trim();
+                if (string.IsNullOrWhiteSpace(objetivo))
+                {
+                    MessageBox.Show("Por favor, indique la Práctica/Objetivo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!int.TryParse(txtGrupoAgenda.Text.Trim(), out var grupo) || grupo <= 0)
+                {
+                    MessageBox.Show("La cantidad de alumnos debe ser un número entero mayor que 0.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 var practica = new Practica
                 {
                     Fecha = fechaHora,
                     Docente = txtDocenteAgenda.Text.Trim(),
-                    Objetivo = txtPracticaAgenda.Text.Trim(),
-                    CantidadEstudiantes = int.TryParse(txtGrupoAgenda.Text.Trim(), out var g) ? g : 0,
+                    Objetivo = objetivo,
+                    CantidadEstudiantes = grupo,
                     Detalles = txtDetallesAgenda.Text.Trim()
                 };
 

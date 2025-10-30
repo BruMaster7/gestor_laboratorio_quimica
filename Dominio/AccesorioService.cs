@@ -33,6 +33,16 @@ namespace Dominio
             if (string.IsNullOrWhiteSpace(a.Nombre))
                 throw new ArgumentException("El nombre del accesorio no puede estar vacío.");
 
+            // Nuevas validaciones: descripción, ubicación y categoría obligatorias en alta
+            if (string.IsNullOrWhiteSpace(a.Descripcion))
+                throw new ArgumentException("La descripción no puede estar vacía.");
+            if (string.IsNullOrWhiteSpace(a.Ubicacion))
+                throw new ArgumentException("La ubicación no puede estar vacía.");
+            if (string.IsNullOrWhiteSpace(a.Categoria))
+                throw new ArgumentException("La categoría no puede estar vacía.");
+            if (a.StockActual < 0)
+                throw new ArgumentException("El stock debe ser un número entero no negativo.");
+
             accesorioDAO.Insertar(a);
             alerta.GenerarYGuardarAlertas();
 
@@ -60,6 +70,16 @@ namespace Dominio
         {
             if (string.IsNullOrWhiteSpace(a.Nombre))
                 throw new ArgumentException("El nombre del accesorio no puede estar vacío.");
+
+            // Validaciones consistentes con el alta: no permitir campos vacíos en actualización
+            if (string.IsNullOrWhiteSpace(a.Descripcion))
+                throw new ArgumentException("La descripción no puede estar vacía.");
+            if (string.IsNullOrWhiteSpace(a.Ubicacion))
+                throw new ArgumentException("La ubicación no puede estar vacía.");
+            if (string.IsNullOrWhiteSpace(a.Categoria))
+                throw new ArgumentException("La categoría no puede estar vacía.");
+            if (a.StockActual < 0)
+                throw new ArgumentException("El stock debe ser un número entero no negativo.");
 
             var existente = accesorioDAO.ObtenerAccesorioPorId(a.IdAccesorio);
             if (existente == null)
