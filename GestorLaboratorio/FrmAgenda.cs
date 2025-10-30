@@ -71,7 +71,8 @@ namespace GestorLaboratorio
                     Fecha = fechaHora,
                     Docente = txtDocenteAgenda.Text.Trim(),
                     Objetivo = txtPracticaAgenda.Text.Trim(),
-                    CantidadEstudiantes = int.TryParse(txtGrupoAgenda.Text.Trim(), out var g) ? g : 0
+                    CantidadEstudiantes = int.TryParse(txtGrupoAgenda.Text.Trim(), out var g) ? g : 0,
+                    Detalles = txtDetallesAgenda.Text.Trim()
                 };
 
                 int id = SistemaFacade.Instancia.AgregarPractica(practica);
@@ -92,6 +93,11 @@ namespace GestorLaboratorio
             {
                 MessageBox.Show("Error al agregar la práctica: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnAgregarAgenda_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

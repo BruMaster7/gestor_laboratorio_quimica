@@ -232,7 +232,7 @@ namespace GestorLaboratorio
         {
             // Limpiar filtros
             cmbCategoriaFiltro.SelectedIndex = -1;
-            cmbUbiFiltro.SelectedIndex = 0; // Asumiendo que el índice 0 es "Todos" o el valor inicial
+            cmbUbiFiltro.SelectedIndex = -1; // Asumiendo que el índice 0 es "Todos" o el valor inicial
             txtFiltroNombre.Clear();
 
             // Recargar todas las sustancias

@@ -57,7 +57,7 @@ namespace GestorLaboratorio
                 txtDocenteForms.Text = s.Docente;
                 txtFechaHoraForms.Text = s.FechaPractica.ToString("yyyy-MM-dd HH:mm");
                 txtGrupoForms.Text = s.Grupo;
-                txtDetallesForms.Text = s.NombrePractica;
+                txtDetallesForms.Text = s.Detalles;
             }
         }
 
@@ -94,6 +94,11 @@ namespace GestorLaboratorio
         }
 
         private void btnAprobarForms_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmFormularios_Load_1(object sender, EventArgs e)
         {
 
         }

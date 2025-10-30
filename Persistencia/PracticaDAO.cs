@@ -23,14 +23,15 @@ namespace Persistencia
             try
             {
                 conexion.AbrirConexion();
-                string sql = @"INSERT INTO Practica (fecha, docente, objetivo, cantidadEstudiantes)
-                               VALUES (@fecha, @docente, @objetivo, @cantidadEstudiantes);
+                string sql = @"INSERT INTO Practica (fecha, docente, objetivo, cantidadEstudiantes, detalles)
+                               VALUES (@fecha, @docente, @objetivo, @cantidadEstudiantes, @detalles);
                                SELECT LAST_INSERT_ID();";
                 MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
                 cmd.Parameters.AddWithValue("@fecha", p.Fecha);
                 cmd.Parameters.AddWithValue("@docente", string.IsNullOrWhiteSpace(p.Docente) ? DBNull.Value : (object)p.Docente);
                 cmd.Parameters.AddWithValue("@objetivo", p.Objetivo);
                 cmd.Parameters.AddWithValue("@cantidadEstudiantes", p.CantidadEstudiantes);
+                cmd.Parameters.AddWithValue("@detalles", string.IsNullOrWhiteSpace(p.Detalles) ? DBNull.Value : (object)p.Detalles);
 
                 // Ejecutar y obtener id
                 var result = cmd.ExecuteScalar();
@@ -48,7 +49,7 @@ namespace Persistencia
             try
             {
                 conexion.AbrirConexion();
-                string sql = "SELECT idPractica, fecha, docente, objetivo, cantidadEstudiantes FROM Practica ORDER BY fecha";
+                string sql = "SELECT idPractica, fecha, docente, objetivo, cantidadEstudiantes, detalles FROM Practica ORDER BY fecha";
                 MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -60,7 +61,8 @@ namespace Persistencia
                             Fecha = reader.GetDateTime("fecha"),
                             Docente = reader.IsDBNull(reader.GetOrdinal("docente")) ? "" : reader.GetString("docente"),
                             Objetivo = reader.IsDBNull(reader.GetOrdinal("objetivo")) ? "" : reader.GetString("objetivo"),
-                            CantidadEstudiantes = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? 0 : reader.GetInt32("cantidadEstudiantes")
+                            CantidadEstudiantes = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? 0 : reader.GetInt32("cantidadEstudiantes"),
+                            Detalles = reader.IsDBNull(reader.GetOrdinal("detalles")) ? "" : reader.GetString("detalles")
                         });
                     }
                 }
@@ -78,7 +80,7 @@ namespace Persistencia
             try
             {
                 conexion.AbrirConexion();
-                string sql = "SELECT idPractica, fecha, docente, objetivo, cantidadEstudiantes FROM Practica WHERE idPractica = @id";
+                string sql = "SELECT idPractica, fecha, docente, objetivo, cantidadEstudiantes, detalles FROM Practica WHERE idPractica = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
                 cmd.Parameters.AddWithValue("@id", id);
                 using (var reader = cmd.ExecuteReader())
@@ -91,7 +93,8 @@ namespace Persistencia
                             Fecha = reader.GetDateTime("fecha"),
                             Docente = reader.IsDBNull(reader.GetOrdinal("docente")) ? "" : reader.GetString("docente"),
                             Objetivo = reader.IsDBNull(reader.GetOrdinal("objetivo")) ? "" : reader.GetString("objetivo"),
-                            CantidadEstudiantes = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? 0 : reader.GetInt32("cantidadEstudiantes")
+                            CantidadEstudiantes = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? 0 : reader.GetInt32("cantidadEstudiantes"),
+                            Detalles = reader.IsDBNull(reader.GetOrdinal("detalles")) ? "" : reader.GetString("detalles")
                         };
                     }
                 }

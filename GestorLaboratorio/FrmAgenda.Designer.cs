@@ -211,6 +211,7 @@
             btnAgregarAgenda.TabIndex = 17;
             btnAgregarAgenda.Text = "Agregar";
             btnAgregarAgenda.UseVisualStyleBackColor = false;
+            btnAgregarAgenda.Click += btnAgregarAgenda_Click_1;
             // 
             // btnModificarAgenda
             // 
