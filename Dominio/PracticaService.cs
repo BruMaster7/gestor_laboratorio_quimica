@@ -9,18 +9,18 @@ namespace Dominio
     {
         private readonly PracticaDAO practicaDAO;
         private readonly SolicitudPracticaDAO solicitudDAO;
+        private readonly HistorialDAO historialDAO;
 
         public PracticaService()
         {
             practicaDAO = new PracticaDAO();
             solicitudDAO = new SolicitudPracticaDAO();
+            historialDAO = new HistorialDAO();
         }
 
         public int AgregarPractica(Practica p)
         {
-            // Validaciones mínimas
             if (p == null) throw new ArgumentNullException(nameof(p));
-            // La validación de 48 horas la realiza la capa UI antes, pero reafirmamos aquí por seguridad:
             if (p.Fecha < DateTime.Now.AddHours(48))
                 throw new ArgumentException("La práctica debe solicitarse con al menos 48 horas de anticipación.");
 
@@ -38,6 +38,12 @@ namespace Dominio
                 Grupo = p.CantidadEstudiantes.ToString()
             };
             solicitudDAO.Insertar(solicitud);
+
+            // Registrar en historial
+            historialDAO.RegistrarMovimiento(
+                SesionActual.NombreUsuario,
+                $"Agregó la práctica '{p.Objetivo}' para el docente '{p.Docente}' programada el {p.Fecha:yyyy-MM-dd HH:mm}."
+            );
 
             return id;
         }
@@ -60,6 +66,11 @@ namespace Dominio
         public void AprobarSolicitud(int idSolicitud)
         {
             solicitudDAO.ActualizarEstado(idSolicitud, "Aprobada");
+
+            historialDAO.RegistrarMovimiento(
+                SesionActual.NombreUsuario,
+                $"Aprobó la solicitud de práctica con ID {idSolicitud}."
+            );
         }
 
         public void RechazarSolicitud(int idSolicitud)
@@ -67,16 +78,29 @@ namespace Dominio
             var s = solicitudDAO.ObtenerPorId(idSolicitud);
             if (s != null)
             {
-                // Eliminar solicitud y la práctica asociada
                 solicitudDAO.EliminarPorIdSolicitud(idSolicitud);
                 practicaDAO.Eliminar(s.IdPractica);
+
+                historialDAO.RegistrarMovimiento(
+                    SesionActual.NombreUsuario,
+                    $"Rechazó y eliminó la solicitud de práctica con ID {idSolicitud} y la práctica asociada '{s.NombrePractica}'."
+                );
             }
         }
 
         public void EliminarPractica(int idPractica)
         {
-            solicitudDAO.EliminarPorPracticaId(idPractica);
-            practicaDAO.Eliminar(idPractica);
+            var practica = practicaDAO.ObtenerPorId(idPractica);
+            if (practica != null)
+            {
+                solicitudDAO.EliminarPorPracticaId(idPractica);
+                practicaDAO.Eliminar(idPractica);
+
+                historialDAO.RegistrarMovimiento(
+                    SesionActual.NombreUsuario,
+                    $"Eliminó la práctica '{practica.Objetivo}' programada para el docente '{practica.Docente}' el {practica.Fecha:yyyy-MM-dd HH:mm}."
+                );
+            }
         }
     }
 }
