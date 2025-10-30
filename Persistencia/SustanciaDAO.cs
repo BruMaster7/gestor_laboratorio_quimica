@@ -171,10 +171,19 @@ namespace Dominio
             try
             {
                 conexion.AbrirConexion();
+
+                // Borramos la sustancia. Las alertas relacionadas se borrarán automáticamente.
                 string sql = "DELETE FROM Sustancia WHERE idSustancia = @id";
-                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.ExecuteNonQuery();
+                using (MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion()))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas > 0)
+                        Console.WriteLine("Sustancia eliminada correctamente.");
+                    else
+                        Console.WriteLine("No se encontró la sustancia con el ID especificado.");
+                }
             }
             catch (Exception ex)
             {
@@ -185,6 +194,7 @@ namespace Dominio
                 conexion.CerrarConexion();
             }
         }
+
 
         // 🔎 Métodos específicos
 
@@ -404,5 +414,126 @@ namespace Dominio
                 EnvaseRecomendado = reader.GetString("envaseRecomendado")
             };
         }
+
+        public void InsertarIncompatibilidades(int idSustancia, List<int> idsIncompatibles)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                foreach (int idIncomp in idsIncompatibles)
+                {
+                    string sql = @"INSERT INTO sustancia_incompatibilidad (idSustancia, idIncompatibilidad)
+                           VALUES (@idSustancia, @idIncompatibilidad)";
+                    MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                    cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+                    cmd.Parameters.AddWithValue("@idIncompatibilidad", idIncomp);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al insertar incompatibilidades: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void ActualizarIncompatibilidades(int idSustancia, List<int> idsIncompatibles)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+
+                // Borrar las existentes
+                string sqlDelete = @"DELETE FROM sustancia_incompatibilidad WHERE idSustancia = @idSustancia";
+                MySqlCommand cmdDelete = new MySqlCommand(sqlDelete, conexion.ObtenerConexion());
+                cmdDelete.Parameters.AddWithValue("@idSustancia", idSustancia);
+                cmdDelete.ExecuteNonQuery();
+
+                // Insertar las nuevas
+                foreach (int idIncomp in idsIncompatibles)
+                {
+                    string sqlInsert = @"INSERT INTO sustancia_incompatibilidad (idSustancia, idIncompatibilidad)
+                                 VALUES (@idSustancia, @idIncompatibilidad)";
+                    MySqlCommand cmdInsert = new MySqlCommand(sqlInsert, conexion.ObtenerConexion());
+                    cmdInsert.Parameters.AddWithValue("@idSustancia", idSustancia);
+                    cmdInsert.Parameters.AddWithValue("@idIncompatibilidad", idIncomp);
+                    cmdInsert.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar incompatibilidades: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public List<(int idSustancia, int idIncompatibilidad)> ObtenerTodasIncompatibilidades()
+        {
+            List<(int, int)> lista = new List<(int, int)>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT idSustancia, idIncompatibilidad FROM sustancia_incompatibilidad";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lista.Add((reader.GetInt32("idSustancia"), reader.GetInt32("idIncompatibilidad")));
+                }
+                reader.Close();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+        public List<int> ObtenerIdsIncompatibles(int idSustancia)
+        {
+            List<int> lista = new List<int>();
+
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = @"
+            SELECT idIncompatibilidad AS idRelacionado
+            FROM sustancia_incompatibilidad
+            WHERE idSustancia = @idSustancia
+
+            UNION
+
+            SELECT idSustancia AS idRelacionado
+            FROM sustancia_incompatibilidad
+            WHERE idIncompatibilidad = @idSustancia;
+        ";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(reader.GetInt32("idRelacionado"));
+                    }
+                }
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+            return lista;
+        }
+
+
+
     }
 }

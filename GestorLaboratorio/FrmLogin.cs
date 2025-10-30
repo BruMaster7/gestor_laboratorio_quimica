@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +30,10 @@ namespace GestorLaboratorio
             bool usuarioLogeado = SistemaFacade.Instancia.Login(usuarioValido, claveValida);
             if (usuarioLogeado)
             {
-                // Credenciales correctas
-                FrmPrincipal frmPrincipal = new FrmPrincipal();
+                Usuario usuarioLogueado = SistemaFacade.Instancia.ObtenerUsuarioPorNombre(usuarioValido);
+                // Credenciales
+                SesionActual.UsuarioLogueado = usuarioLogueado;
+                FrmPrincipal frmPrincipal = new FrmPrincipal(usuarioLogueado);
                 frmPrincipal.Show();
                 this.Hide(); // Ocultar el formulario de login
             }

@@ -29,7 +29,7 @@ namespace GestorLaboratorio
                 Sustancia nueva = new Sustancia
                 {
                     Nombre = txtNombreSus.Text.Trim(),
-                    Categoria = cmbCategoriaSus.Text, // ComboBox, se toma el texto seleccionado
+                    Categoria = cmbCategoriaSus.Text,
                     UnidadMedida = cmbUnidadSus.Text,
                     DescripcionManipulacion = txtManipulacionSus.Text.Trim(),
                     Ubicacion = txtUbicacionSus.Text.Trim(),
@@ -41,17 +41,20 @@ namespace GestorLaboratorio
                     EnvaseRecomendado = txtEnvaseSus.Text.Trim()
                 };
 
-                // ⚠️ txtIncompSus: si usás incompatibilidades, lo podemos manejar aparte en otro DAO
-                // por ahora lo guardamos como string "pendiente de procesar"
-                string incompatibilidad = txtIncompSus.Text.Trim();
+                // 2. Parsear incompatibilidades desde txtArea
+                List<int> idsIncompatibles = txtIncompSus.Text
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => int.Parse(x.Trim()))
+                    .ToList();
 
-                // 2. Guardar en la BD
-                SistemaFacade.Instancia.AgregarSustancia(nueva);
-                // 3. Aviso al usuario
+                // 3. Guardar en la BD junto con incompatibilidades
+                SistemaFacade.Instancia.AgregarSustancia(nueva, idsIncompatibles);
+
+                // 4. Aviso al usuario
                 MessageBox.Show("Sustancia agregada con éxito. ID generado: " + nueva.IdSustancia,
                                 "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // 4. (Opcional) limpiar campos
+                // 5. Limpiar campos
                 txtNombreSus.Clear();
                 cmbCategoriaSus.SelectedIndex = -1;
                 cmbUnidadSus.SelectedIndex = -1;
@@ -71,6 +74,7 @@ namespace GestorLaboratorio
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
     }
 }

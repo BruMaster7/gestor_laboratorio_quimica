@@ -44,7 +44,8 @@ namespace Persistencia
                     Tipo = "Sustancia con stock crítico",
                     Descripcion = $"La sustancia '{sus.Nombre}' tiene un stock actual de {sus.StockActual}, igual o menor al mínimo permitido ({sus.StockMinimo}).",
                     FechaHora = DateTime.Now,
-                    Activo = true
+                    Activo = true,
+                    IdSustancia = sus.IdSustancia
                 });
             }
 
@@ -57,7 +58,8 @@ namespace Persistencia
                     Tipo = "Sustancia vencida",
                     Descripcion = $"La sustancia '{sus.Nombre}' ha vencido el {sus.FechaVencimiento:dd/MM/yyyy}.",
                     FechaHora = DateTime.Now,
-                    Activo = true
+                    Activo = true,
+                    IdSustancia = sus.IdSustancia
                 });
             }
 
@@ -120,6 +122,94 @@ namespace Persistencia
                 conexion.CerrarConexion();
             }
             return lista;
+        }
+
+        // Desactiva alertas activas de una sustancia por tipo (cuando IdSustancia está presente)
+        public void DesactivarAlertasPorSustanciaYTipo(int idSustancia, string tipo)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "UPDATE Alerta SET Activo = 0 WHERE idSustancia = @idSustancia AND Tipo = @tipo AND Activo = 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+                cmd.Parameters.AddWithValue("@tipo", tipo);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        // Desactiva alertas activas de un tipo que contengan el nombre del accesorio en la descripción
+        public void DesactivarAlertasPorAccesorioNombre(string nombreAccesorio, string tipo = "Accesorio sin stock")
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "UPDATE Alerta SET Activo = 0 WHERE Tipo = @tipo AND Descripcion LIKE @pat AND Activo = 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@tipo", tipo);
+                cmd.Parameters.AddWithValue("@pat", "%" + nombreAccesorio + "%");
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        // Elimina todas las alertas (activas o no) asociadas a una accesorio buscando por descripción
+        public void EliminarPorAccesorioNombre(string nombreAccesorio, string tipo = "Accesorio sin stock")
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "DELETE FROM Alerta WHERE Tipo = @tipo AND Descripcion LIKE @pat";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@tipo", tipo);
+                cmd.Parameters.AddWithValue("@pat", "%" + nombreAccesorio + "%");
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        // Desactiva todas las alertas activas relacionadas con una sustancia
+        public void DesactivarAlertasPorSustancia(int idSustancia)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "UPDATE Alerta SET Activo = 0 WHERE idSustancia = @idSustancia AND Activo = 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        // Elimina todas las alertas (activas o no) asociadas a una sustancia
+        public void EliminarPorSustancia(int idSustancia)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "DELETE FROM Alerta WHERE idSustancia = @idSustancia";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
         }
     }
 }

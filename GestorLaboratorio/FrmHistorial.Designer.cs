@@ -60,6 +60,7 @@
             btnImpHistorial.TabIndex = 1;
             btnImpHistorial.Text = "Imprimir reporte";
             btnImpHistorial.UseVisualStyleBackColor = false;
+            btnImpHistorial.Click += btnImpHistorial_Click;
             // 
             // label1
             // 

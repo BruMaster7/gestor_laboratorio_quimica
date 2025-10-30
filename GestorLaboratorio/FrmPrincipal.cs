@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace GestorLaboratorio
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        public FrmPrincipal(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            if (usuarioLogueado.idRol != 1)
+            {
+                gestionarUsuariosToolStripMenuItem.Visible = false;
+                alertasToolStripMenuItem.Visible = false;
+                formularioToolStripMenuItem.Visible = false;
+                historialToolStripMenuItem.Visible = false;
+                gestiónToolStripMenuItem.Visible = false;
+            }
         }
 
         private void AbrirFormulario(Form nuevo)
@@ -102,6 +111,11 @@ namespace GestorLaboratorio
         private void gestionarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmGestionUsuarios());
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

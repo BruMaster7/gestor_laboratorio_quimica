@@ -44,7 +44,6 @@
             label5 = new Label();
             label26 = new Label();
             txtFiltroNombre = new TextBox();
-            label7 = new Label();
             label8 = new Label();
             btnBuscar = new Button();
             btnSinFiltro = new Button();
@@ -232,15 +231,6 @@
             txtFiltroNombre.Size = new Size(141, 22);
             txtFiltroNombre.TabIndex = 102;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(0, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(45, 17);
-            label7.TabIndex = 107;
-            label7.Text = "label7";
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -289,7 +279,6 @@
             Controls.Add(btnSinFiltro);
             Controls.Add(btnBuscar);
             Controls.Add(label8);
-            Controls.Add(label7);
             Controls.Add(label26);
             Controls.Add(txtFiltroNombre);
             Controls.Add(label5);
@@ -341,7 +330,6 @@
         private System.Windows.Forms.Label label5;
         private Label label26;
         private TextBox txtFiltroNombre;
-        private Label label7;
         private Label label8;
         private Button btnBuscar;
         private Button btnSinFiltro;

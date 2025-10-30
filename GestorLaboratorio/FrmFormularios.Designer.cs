@@ -190,6 +190,7 @@
             btnAprobarForms.TabIndex = 13;
             btnAprobarForms.Text = "Aprobar";
             btnAprobarForms.UseVisualStyleBackColor = false;
+            btnAprobarForms.Click += btnAprobarForms_Click_1;
             // 
             // btnRechazarForms
             // 

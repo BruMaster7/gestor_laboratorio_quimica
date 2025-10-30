@@ -1,6 +1,101 @@
-# Crea el archivo .gitignore
-echo ".vs/" >> .gitignore
-echo "bin/" >> .gitignore
-echo "obj/" >> .gitignore
-echo "*.user" >> .gitignore
-echo "*.suo" >> .gitignore
+## Archivos de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.futdcache.v2
+*.lnk
+*.userprefs
+*.sln.docstates
+*.db
+*.vsidx
+*.vspx
+
+## Archivos de compilación
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+*.dll
+*.pdb
+*.exe
+*.cache
+*.lib
+*.log
+*.tlog
+*.lastbuildstate
+
+## Archivos de publicación
+publish/
+[Dd]ebug/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+[Bb]uildOutput/
+
+## Archivos de proyectos
+*.csproj.user
+*.vbproj.user
+*.fsproj.user
+*.dbmdl
+Generated\ Files/
+
+## Paquetes NuGet
+*.nupkg
+*.snupkg
+[Nn]u[Pp]ackages/
+packages/
+**/[Pp]ackages/*/
+!**/[Pp]ackages/build/
+
+## Archivos de configuración local
+appsettings.Development.json
+appsettings.Local.json
+appsettings.local.json
+*.local.config
+
+## Archivos de usuario
+*.rsuser
+*.DotSettings.user
+
+## Archivos de Azure
+[Aa]zure/
+
+## Archivos de MSBuild
+*.msi
+*.msm
+*.msp
+
+## Archivos de SQL Server
+*.mdf
+*.ldf
+*.ndf
+
+## Archivos de prueba
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## Otros
+*.[Cc]ache
+*.ilk
+*.meta
+*.obj
+*.opensdf
+*.ncb
+*.sdf
+*.xml
+*.orig
+*~
+*.swp
+*.swo
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db

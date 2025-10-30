@@ -15,11 +15,14 @@ namespace Dominio
         private AlertaService alertaService = new AlertaService();
         private usuarioService usuarioService;
 
+        // Nuevo servicio para prácticas
+        private PracticaService practicaService = new PracticaService();
+
 
         // 🔒 Constructor privado (evita que se pueda instanciar fuera)
         private SistemaFacade()
         {
-            sustanciaService = new SustanciaService();
+            sustanciaService = new SustanciaService(SesionActual.NombreUsuario);
             accesorioService = new AccesorioService();
             usuarioService = new usuarioService();
         }
@@ -36,9 +39,9 @@ namespace Dominio
         }
 
         // Metodos Sustancia
-        public void AgregarSustancia(Sustancia s)
+        public void AgregarSustancia(Sustancia s, List<int> idsIncompatibles)
         {
-            sustanciaService.AgregarSustancia(s);
+            sustanciaService.AgregarSustancia(s, idsIncompatibles);
         }
 
         public List<Sustancia> ObtenerSustancias()
@@ -46,14 +49,19 @@ namespace Dominio
             return sustanciaService.ObtenerTodas();
         }
 
+        public List<int> ObtenerIdsIncompatibles(int idSustancia)
+        {
+            return sustanciaService.ObtenerIdsIncompatibles(idSustancia);
+        }
+
         public Sustancia ObtenerSustanciaPorId(int id)
         {
             return sustanciaService.ObtenerPorId(id);
         }
 
-        public void ActualizarSustancia(Sustancia s)
+        public void ActualizarSustancia(Sustancia s, List<int> idsIncompatibles)
         {
-            sustanciaService.Actualizar(s);
+            sustanciaService.Actualizar(s, idsIncompatibles);
         }
 
         public void EliminarSustancia(int id)
@@ -101,6 +109,17 @@ namespace Dominio
         public bool ExisteAccesorioPorNombre(string nombre) => accesorioService.ExistePorNombre(nombre);
 
         // -----------------------------
+        // PRACTICAS / SOLICITUDES
+        // -----------------------------
+        public int AgregarPractica(Practica p) => practicaService.AgregarPractica(p);
+        public List<Practica> ObtenerPracticas() => practicaService.ObtenerPracticas();
+        public List<SolicitudPractica> ObtenerSolicitudesPractica() => practicaService.ObtenerSolicitudes();
+        public SolicitudPractica ObtenerSolicitudPorId(int id) => practicaService.ObtenerSolicitudPorId(id);
+        public void AprobarSolicitud(int idSolicitud) => practicaService.AprobarSolicitud(idSolicitud);
+        public void RechazarSolicitud(int idSolicitud) => practicaService.RechazarSolicitud(idSolicitud);
+        public void EliminarPractica(int idPractica) => practicaService.EliminarPractica(idPractica);
+
+        // -----------------------------
         // ALERTAS
         // -----------------------------
 
@@ -136,6 +155,11 @@ namespace Dominio
         public bool UsuarioLogeadoEsAdmin(string v, object usuarioValido)
         {
             throw new NotImplementedException();
+        }
+
+        public Usuario ObtenerUsuarioPorNombre(string nombreUsuario)
+        {
+            return usuarioService.ObtenerUsuarioPorNombre(nombreUsuario);
         }
     }
 

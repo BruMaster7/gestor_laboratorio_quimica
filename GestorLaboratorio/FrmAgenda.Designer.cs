@@ -31,11 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             dgvPracticasProg = new DataGridView();
-            Fecha = new DataGridViewTextBoxColumn();
-            Hora = new DataGridViewTextBoxColumn();
-            Docente = new DataGridViewTextBoxColumn();
-            Práctica = new DataGridViewTextBoxColumn();
-            Grupo = new DataGridViewTextBoxColumn();
             label2 = new Label();
             label3 = new Label();
             txtDocenteAgenda = new TextBox();
@@ -73,7 +68,6 @@
             dgvPracticasProg.BackgroundColor = Color.FromArgb(5, 23, 0);
             dgvPracticasProg.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
             dgvPracticasProg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPracticasProg.Columns.AddRange(new DataGridViewColumn[] { Fecha, Hora, Docente, Práctica, Grupo });
             dgvPracticasProg.Location = new Point(-1, 309);
             dgvPracticasProg.Name = "dgvPracticasProg";
             dgvPracticasProg.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -88,31 +82,6 @@
             dgvPracticasProg.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dgvPracticasProg.Size = new Size(785, 154);
             dgvPracticasProg.TabIndex = 2;
-            // 
-            // Fecha
-            // 
-            Fecha.HeaderText = "Fecha";
-            Fecha.Name = "Fecha";
-            // 
-            // Hora
-            // 
-            Hora.HeaderText = "Hora";
-            Hora.Name = "Hora";
-            // 
-            // Docente
-            // 
-            Docente.HeaderText = "Docente";
-            Docente.Name = "Docente";
-            // 
-            // Práctica
-            // 
-            Práctica.HeaderText = "Práctica";
-            Práctica.Name = "Práctica";
-            // 
-            // Grupo
-            // 
-            Grupo.HeaderText = "Grupo";
-            Grupo.Name = "Grupo";
             // 
             // label2
             // 
@@ -309,11 +278,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvPracticasProg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Docente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Práctica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDocenteAgenda;
