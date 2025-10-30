@@ -102,7 +102,7 @@ namespace GestorLaboratorio
 
         private void btnSinFiltro_Click(object sender, EventArgs e)
         {
-            btnBuscar.Text = "";
+            txtFiltroNombre.Text = "";
             CargarAccesorios();
         }
 
