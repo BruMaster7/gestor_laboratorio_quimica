@@ -49,6 +49,11 @@ namespace Dominio
             return sustanciaService.ObtenerTodas();
         }
 
+        public List<int> ObtenerIdsIncompatibles(int idSustancia)
+        {
+            return sustanciaService.ObtenerIdsIncompatibles(idSustancia);
+        }
+
         public Sustancia ObtenerSustanciaPorId(int id)
         {
             return sustanciaService.ObtenerPorId(id);

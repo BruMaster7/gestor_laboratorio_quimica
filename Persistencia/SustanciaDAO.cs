@@ -495,6 +495,45 @@ namespace Dominio
             return lista;
         }
 
+        public List<int> ObtenerIdsIncompatibles(int idSustancia)
+        {
+            List<int> lista = new List<int>();
+
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = @"
+            SELECT idIncompatibilidad AS idRelacionado
+            FROM sustancia_incompatibilidad
+            WHERE idSustancia = @idSustancia
+
+            UNION
+
+            SELECT idSustancia AS idRelacionado
+            FROM sustancia_incompatibilidad
+            WHERE idIncompatibilidad = @idSustancia;
+        ";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(reader.GetInt32("idRelacionado"));
+                    }
+                }
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+            return lista;
+        }
+
+
 
     }
 }

@@ -88,6 +88,8 @@ namespace GestorLaboratorio
 
                 SustanciaSeleccionadaId = Convert.ToInt32(fila.Cells["IdSustancia"].Value);
 
+                List<int> idsIncompatibles = SistemaFacade.Instancia.ObtenerIdsIncompatibles(SustanciaSeleccionadaId);
+
                 txtNombreGestorSus.Text = fila.Cells["Nombre"].Value.ToString();
                 cmbCategoriaGestorSus.Text = fila.Cells["Categoria"].Value.ToString();
                 txtUbicacionGestorSus.Text = fila.Cells["Ubicacion"].Value.ToString();
@@ -96,7 +98,7 @@ namespace GestorLaboratorio
                 nudStockAGestorSus.Value = Convert.ToInt32(fila.Cells["StockActual"].Value);
                 cmbUnidad.Text = fila.Cells["UnidadMedida"].Value.ToString();
                 txtEnvase.Text = fila.Cells["EnvaseRecomendado"].Value.ToString();
-                txtIncompGestionSus.Text = fila.Cells["Peligrosidad"].Value.ToString();
+                txtIncompGestionSus.Text = string.Join(",", idsIncompatibles);
                 dtpFechaIngGestionSus.Value = Convert.ToDateTime(fila.Cells["FechaIngreso"].Value);
                 dtpFechaVencGestionSus.Value = Convert.ToDateTime(fila.Cells["FechaVencimiento"].Value);
                 cmbPeligrosidadGestionSus.Text = fila.Cells["Peligrosidad"].Value.ToString();

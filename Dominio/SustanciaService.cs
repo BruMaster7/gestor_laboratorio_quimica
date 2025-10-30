@@ -185,5 +185,11 @@ namespace Dominio
             }
         }
 
+        public List<int> ObtenerIdsIncompatibles(int idSustancia)
+        {
+            return dao.ObtenerIdsIncompatibles(idSustancia);
+        }
+
+
     }
 }

@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\dominio\\sustanciaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sustanciaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{35414333-2163-4FDC-8BED-48D6303C70AF}|Persistencia\\Persistencia.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\persistencia\\sustanciadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35414333-2163-4FDC-8BED-48D6303C70AF}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\sustanciadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35414333-2163-4FDC-8BED-48D6303C70AF}|Persistencia\\Persistencia.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\persistencia\\alertadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35414333-2163-4FDC-8BED-48D6303C70AF}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\alertadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\gestorlaboratorio\\frmgestorsustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmgestorsustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\dominio\\sistemafacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sistemafacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\dominio\\sustanciaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sustanciaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\gestorlaboratorio\\frmgestorsustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmgestorsustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35414333-2163-4FDC-8BED-48D6303C70AF}|Persistencia\\Persistencia.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\persistencia\\alertadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35414333-2163-4FDC-8BED-48D6303C70AF}|Persistencia\\Persistencia.csproj|solutionrelative:persistencia\\alertadao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\gestorlaboratorio\\frmaltasustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\gestorlaboratorio\\frmaltasustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|solutionrelative:gestorlaboratorio\\frmaltasustancias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\dominio\\sistemafacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2A47ECEB-F5D3-4E95-9D09-4B36FA534267}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sistemafacade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{411D90E4-84C0-4A62-94F3-E9F6D0A6607B}|GestorLaboratorio\\GestorLaboratorio.csproj|c:\\users\\bruno\\desktop\\gestor_laboratorio_quimica\\gestorlaboratorio\\frmformularios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,11 +150,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GestorLaboratorio.AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
+              "RelativeToolTip": "GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T03:56:38.577Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -170,20 +179,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "FrmGestorSustancias.cs",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\FrmGestorSustancias.cs",
               "RelativeDocumentMoniker": "GestorLaboratorio\\FrmGestorSustancias.cs",
               "ToolTip": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\FrmGestorSustancias.cs",
               "RelativeToolTip": "GestorLaboratorio\\FrmGestorSustancias.cs",
-              "ViewState": "AgIAALwAAAAAAAAAAAAiwMMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAwF8AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T22:02:03.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "FrmAltaSustancias.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\FrmAltaSustancias.cs",
               "RelativeDocumentMoniker": "GestorLaboratorio\\FrmAltaSustancias.cs",
@@ -195,59 +204,50 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "SistemaFacade.cs",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\SistemaFacade.cs",
               "RelativeDocumentMoniker": "Dominio\\SistemaFacade.cs",
               "ToolTip": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\SistemaFacade.cs",
               "RelativeToolTip": "Dominio\\SistemaFacade.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAowCsAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwDYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T19:57:29.683Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GestorLaboratorio.AssemblyInfo.cs",
-              "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
-              "ToolTip": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
-              "RelativeToolTip": "GestorLaboratorio\\obj\\Debug\\net8.0-windows\\GestorLaboratorio.AssemblyInfo.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAewA4AAAB1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-24T03:35:48.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SustanciaService.cs",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\SustanciaService.cs",
               "RelativeDocumentMoniker": "Dominio\\SustanciaService.cs",
               "ToolTip": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Dominio\\SustanciaService.cs",
               "RelativeToolTip": "Dominio\\SustanciaService.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAowFcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAiwL8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-29T02:51:12.404Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "SustanciaDAO.cs",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\SustanciaDAO.cs",
               "RelativeDocumentMoniker": "Persistencia\\SustanciaDAO.cs",
               "ToolTip": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\SustanciaDAO.cs",
               "RelativeToolTip": "Persistencia\\SustanciaDAO.cs",
-              "ViewState": "AgIAANgBAAAAAAAAAAAkwPABAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPABAAAAAAAAAAAYwAECAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-30T02:28:35.386Z",
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "AlertaDAO.cs",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\Persistencia\\AlertaDAO.cs",
               "RelativeDocumentMoniker": "Persistencia\\AlertaDAO.cs",
@@ -260,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FrmAltaSustancias.cs",
               "DocumentMoniker": "C:\\Users\\bruno\\Desktop\\gestor_laboratorio_quimica\\GestorLaboratorio\\FrmAltaSustancias.cs",
               "RelativeDocumentMoniker": "GestorLaboratorio\\FrmAltaSustancias.cs",
