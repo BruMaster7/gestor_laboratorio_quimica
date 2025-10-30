@@ -39,9 +39,9 @@ namespace Dominio
         }
 
         // Metodos Sustancia
-        public void AgregarSustancia(Sustancia s)
+        public void AgregarSustancia(Sustancia s, List<int> idsIncompatibles)
         {
-            sustanciaService.AgregarSustancia(s);
+            sustanciaService.AgregarSustancia(s, idsIncompatibles);
         }
 
         public List<Sustancia> ObtenerSustancias()
@@ -54,9 +54,9 @@ namespace Dominio
             return sustanciaService.ObtenerPorId(id);
         }
 
-        public void ActualizarSustancia(Sustancia s)
+        public void ActualizarSustancia(Sustancia s, List<int> idsIncompatibles)
         {
-            sustanciaService.Actualizar(s);
+            sustanciaService.Actualizar(s, idsIncompatibles);
         }
 
         public void EliminarSustancia(int id)

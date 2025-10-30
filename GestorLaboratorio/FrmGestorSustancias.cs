@@ -185,10 +185,17 @@ namespace GestorLaboratorio
                 sustancia.FechaIngreso = dtpFechaIngGestionSus.Value;
                 sustancia.FechaVencimiento = dtpFechaVencGestionSus.Value;
 
-                // Actualizar en el sistema
-                SistemaFacade.Instancia.ActualizarSustancia(sustancia);
+                // Parsear incompatibilidades desde txtArea
+                List<int> idsIncompatibles = txtIncompGestionSus.Text
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => int.Parse(x.Trim()))
+                    .ToList();
+
+                // Actualizar en el sistema junto con incompatibilidades
+                SistemaFacade.Instancia.ActualizarSustancia(sustancia, idsIncompatibles);
 
                 MessageBox.Show("Sustancia modificada correctamente ✅");
+
                 // Refrescar grilla
                 dgvSus.DataSource = null;
                 dgvSus.DataSource = SistemaFacade.Instancia.ObtenerSustancias();
@@ -198,6 +205,7 @@ namespace GestorLaboratorio
                 MessageBox.Show("Error al modificar: " + ex.Message);
             }
         }
+
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {

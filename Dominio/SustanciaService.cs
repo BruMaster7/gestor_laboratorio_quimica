@@ -20,7 +20,7 @@ namespace Dominio
             usuarioActual = usuario;
         }
 
-        public void AgregarSustancia(Sustancia s)
+        public void AgregarSustancia(Sustancia s, List<int> idsIncompatibles)
         {
             if (string.IsNullOrWhiteSpace(s.Nombre))
                 throw new ArgumentException("El nombre de la sustancia es obligatorio.");
@@ -31,12 +31,19 @@ namespace Dominio
             if (s.FechaVencimiento <= s.FechaIngreso)
                 throw new ArgumentException("La fecha de vencimiento debe ser posterior a la de ingreso.");
 
+            // Insertar sustancia
             dao.Insertar(s);
+
+            // Insertar incompatibilidades
+            if (idsIncompatibles != null && idsIncompatibles.Count > 0)
+                dao.InsertarIncompatibilidades(s.IdSustancia, idsIncompatibles);
+
             alerta.GenerarYGuardarAlertas();
 
             // Registrar en historial
             historialDAO.RegistrarMovimiento(usuarioActual, $"Agregó la sustancia '{s.Nombre}' con stock {s.StockActual}.");
         }
+
 
         public List<Sustancia> ObtenerTodas()
         {
@@ -48,13 +55,17 @@ namespace Dominio
             return dao.ObtenerPorId(id);
         }
 
-        public void Actualizar(Sustancia s)
+        public void Actualizar(Sustancia s, List<int> idsIncompatibles)
         {
             var existente = dao.ObtenerPorId(s.IdSustancia);
             if (existente == null)
                 throw new ArgumentException("La sustancia no existe.");
 
             dao.Actualizar(s);
+
+            // Actualizar incompatibilidades
+            if (idsIncompatibles != null)
+                dao.ActualizarIncompatibilidades(s.IdSustancia, idsIncompatibles);
 
             var alertaDao = new AlertaDAO();
 
@@ -74,9 +85,9 @@ namespace Dominio
 
             alerta.GenerarYGuardarAlertas();
 
-            // Registrar en historial
             historialDAO.RegistrarMovimiento(usuarioActual, $"Actualizó la sustancia '{s.Nombre}'.");
         }
+
 
         public void Eliminar(int id)
         {
