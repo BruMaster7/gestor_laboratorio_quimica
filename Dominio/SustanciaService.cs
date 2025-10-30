@@ -38,6 +38,7 @@ namespace Dominio
             if (idsIncompatibles != null && idsIncompatibles.Count > 0)
                 dao.InsertarIncompatibilidades(s.IdSustancia, idsIncompatibles);
 
+            GenerarAlertasPorIncompatibilidad();
             alerta.GenerarYGuardarAlertas();
 
             // Registrar en historial
@@ -66,6 +67,7 @@ namespace Dominio
             // Actualizar incompatibilidades
             if (idsIncompatibles != null)
                 dao.ActualizarIncompatibilidades(s.IdSustancia, idsIncompatibles);
+                GenerarAlertasPorIncompatibilidad();
 
             var alertaDao = new AlertaDAO();
 
@@ -140,5 +142,48 @@ namespace Dominio
         {
             dao.ActualizarIncompatibilidades(idSustancia, idsIncompatibles);
         }
+
+        public void GenerarAlertasPorIncompatibilidad()
+        {
+            var alertaDao = new AlertaDAO();
+            var sustancias = dao.ObtenerTodas(); // Lista de todas las sustancias
+            var incompatibilidades = dao.ObtenerTodasIncompatibilidades();
+            // Debe devolver List<(int idSustancia, int idIncompatibilidad)>
+
+            // Recorrer cada sustancia
+            foreach (var s1 in sustancias)
+            {
+                foreach (var s2 in sustancias)
+                {
+                    if (s1.IdSustancia >= s2.IdSustancia)
+                        continue; // Evitar duplicados y auto-comparación
+
+                    // Si s1 y s2 son incompatibles
+                    bool sonIncompatibles = incompatibilidades.Any(x =>
+                        (x.idSustancia == s1.IdSustancia && x.idIncompatibilidad == s2.IdSustancia) ||
+                        (x.idSustancia == s2.IdSustancia && x.idIncompatibilidad == s1.IdSustancia));
+
+                    if (!sonIncompatibles)
+                        continue;
+
+                    // Si están en la misma ubicación
+                    if (s1.Ubicacion == s2.Ubicacion)
+                    {
+                        // Crear alerta
+                        Alerta alerta = new Alerta
+                        {
+                            Tipo = "Incompatibilidad de sustancias",
+                            Descripcion = $"Las sustancias '{s1.Nombre}' y '{s2.Nombre}' son incompatibles y están en la misma ubicación '{s1.Ubicacion}'",
+                            FechaHora = DateTime.Now,
+                            Activo = true
+                        };
+
+                        // Insertar alerta vinculada a las dos sustancias (opcional: vincular solo a la primera)
+                        alertaDao.Insertar(alerta, s1.IdSustancia);
+                    }
+                }
+            }
+        }
+
     }
 }

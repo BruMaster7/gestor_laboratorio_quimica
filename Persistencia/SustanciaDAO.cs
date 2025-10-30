@@ -473,5 +473,28 @@ namespace Dominio
             }
         }
 
+        public List<(int idSustancia, int idIncompatibilidad)> ObtenerTodasIncompatibilidades()
+        {
+            List<(int, int)> lista = new List<(int, int)>();
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = "SELECT idSustancia, idIncompatibilidad FROM sustancia_incompatibilidad";
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lista.Add((reader.GetInt32("idSustancia"), reader.GetInt32("idIncompatibilidad")));
+                }
+                reader.Close();
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return lista;
+        }
+
+
     }
 }
