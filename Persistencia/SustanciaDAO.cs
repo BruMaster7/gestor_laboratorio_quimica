@@ -414,5 +414,64 @@ namespace Dominio
                 EnvaseRecomendado = reader.GetString("envaseRecomendado")
             };
         }
+
+        public void InsertarIncompatibilidades(int idSustancia, List<int> idsIncompatibles)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                foreach (int idIncomp in idsIncompatibles)
+                {
+                    string sql = @"INSERT INTO sustancia_incompatibilidad (idSustancia, idIncompatibilidad)
+                           VALUES (@idSustancia, @idIncompatibilidad)";
+                    MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                    cmd.Parameters.AddWithValue("@idSustancia", idSustancia);
+                    cmd.Parameters.AddWithValue("@idIncompatibilidad", idIncomp);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al insertar incompatibilidades: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void ActualizarIncompatibilidades(int idSustancia, List<int> idsIncompatibles)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+
+                // Borrar las existentes
+                string sqlDelete = @"DELETE FROM sustancia_incompatibilidad WHERE idSustancia = @idSustancia";
+                MySqlCommand cmdDelete = new MySqlCommand(sqlDelete, conexion.ObtenerConexion());
+                cmdDelete.Parameters.AddWithValue("@idSustancia", idSustancia);
+                cmdDelete.ExecuteNonQuery();
+
+                // Insertar las nuevas
+                foreach (int idIncomp in idsIncompatibles)
+                {
+                    string sqlInsert = @"INSERT INTO sustancia_incompatibilidad (idSustancia, idIncompatibilidad)
+                                 VALUES (@idSustancia, @idIncompatibilidad)";
+                    MySqlCommand cmdInsert = new MySqlCommand(sqlInsert, conexion.ObtenerConexion());
+                    cmdInsert.Parameters.AddWithValue("@idSustancia", idSustancia);
+                    cmdInsert.Parameters.AddWithValue("@idIncompatibilidad", idIncomp);
+                    cmdInsert.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar incompatibilidades: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
     }
 }

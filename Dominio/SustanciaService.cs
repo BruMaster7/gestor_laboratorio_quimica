@@ -119,5 +119,15 @@ namespace Dominio
         {
             return dao.ObtenerUbicaciones();
         }
+
+        public void AgregarIncompatibilidades(int idSustancia, List<int> idsIncompatibles)
+        {
+            dao.InsertarIncompatibilidades(idSustancia, idsIncompatibles);
+        }
+
+        public void ActualizarIncompatibilidades(int idSustancia, List<int> idsIncompatibles)
+        {
+            dao.ActualizarIncompatibilidades(idSustancia, idsIncompatibles);
+        }
     }
 }
