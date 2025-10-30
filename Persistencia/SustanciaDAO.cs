@@ -171,10 +171,19 @@ namespace Dominio
             try
             {
                 conexion.AbrirConexion();
+
+                // Borramos la sustancia. Las alertas relacionadas se borrarán automáticamente.
                 string sql = "DELETE FROM Sustancia WHERE idSustancia = @id";
-                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.ExecuteNonQuery();
+                using (MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion()))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas > 0)
+                        Console.WriteLine("Sustancia eliminada correctamente.");
+                    else
+                        Console.WriteLine("No se encontró la sustancia con el ID especificado.");
+                }
             }
             catch (Exception ex)
             {
@@ -185,6 +194,7 @@ namespace Dominio
                 conexion.CerrarConexion();
             }
         }
+
 
         // 🔎 Métodos específicos
 
