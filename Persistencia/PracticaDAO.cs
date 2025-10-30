@@ -121,6 +121,37 @@ namespace Persistencia
                 conexion.CerrarConexion();
             }
         }
+
+        // Verifica si existe práctica en ±minutosIntervalo alrededor de la fecha indicada
+        public bool HayConflictoHorario(DateTime fecha, int minutosIntervalo = 60, int? excluirId = null)
+        {
+            try
+            {
+                conexion.AbrirConexion();
+                string sql = @"
+                    SELECT COUNT(*) 
+                    FROM Practica
+                    WHERE ABS(TIMESTAMPDIFF(MINUTE, fecha, @fecha)) < @minutos";
+
+                if (excluirId.HasValue)
+                    sql += " AND idPractica <> @excluirId";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.Parameters.AddWithValue("@minutos", minutosIntervalo);
+
+                if (excluirId.HasValue)
+                    cmd.Parameters.AddWithValue("@excluirId", excluirId.Value);
+
+                var result = cmd.ExecuteScalar();
+                int count = Convert.ToInt32(result);
+                return count > 0;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
     }
 }
 

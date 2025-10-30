@@ -30,6 +30,10 @@ namespace Dominio
             if (p.CantidadEstudiantes <= 0)
                 throw new ArgumentException("La cantidad de estudiantes debe ser un número entero mayor que 0.");
 
+            // Verificar conflicto horario (±60 minutos)
+            if (practicaDAO.HayConflictoHorario(p.Fecha, 60))
+                throw new ArgumentException("Ya existe una práctica programada dentro de 60 minutos de la fecha/hora indicada.");
+
             int id = practicaDAO.Insertar(p);
 
             // Generar solicitud
