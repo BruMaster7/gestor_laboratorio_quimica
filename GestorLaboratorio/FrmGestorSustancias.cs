@@ -28,8 +28,12 @@ namespace GestorLaboratorio
             cargarCategorias();
             cargarUbicaciones();
 
-            cmbUbiFiltro.SelectedIndex = 0;
+            // Asegurar índice por defecto si hay items
+            if (cmbCategoriaFiltro.Items.Count > 0)
+                cmbCategoriaFiltro.SelectedIndex = 0;
 
+            if (cmbUbiFiltro.Items.Count > 0)
+                cmbUbiFiltro.SelectedIndex = 0;
         }
 
         private void CargarSustancias()
@@ -53,11 +57,31 @@ namespace GestorLaboratorio
         {
             try
             {
-                // Evaluar el resultado de la función para obtener la lista de categorías
-                var categorias = SistemaFacade.Instancia.ObtenerCategorias();
+                var categorias = SistemaFacade.Instancia.ObtenerCategorias() ?? new List<string>();
 
                 cmbCategoriaFiltro.Items.Clear();
-                cmbCategoriaFiltro.Items.AddRange(categorias.ToArray());
+
+                // Normalizar: quitar nulos/espacios, eliminar duplicados e ordenar
+                var listaLimpia = categorias
+                    .Where(c => !string.IsNullOrWhiteSpace(c))
+                    .Select(c => c.Trim())
+                    .Distinct(StringComparer.OrdinalIgnoreCase)
+                    .OrderBy(c => c, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+                // Añadir opción "Todos" siempre
+                cmbCategoriaFiltro.Items.Add("Todos");
+
+                if (listaLimpia.Count > 0)
+                {
+                    cmbCategoriaFiltro.Items.AddRange(listaLimpia.ToArray());
+                }
+
+                // Mostrar como lista sólo lectura para evitar entradas inválidas (opcional)
+                cmbCategoriaFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                // Seleccionar "Todos" por defecto
+                cmbCategoriaFiltro.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -69,10 +93,22 @@ namespace GestorLaboratorio
         {
             try
             {
-                // Evaluar el resultado de la función para obtener la lista de ubicaciones
-                var ubicaciones = SistemaFacade.Instancia.ObtenerUbicaciones();
+                var ubicaciones = SistemaFacade.Instancia.ObtenerUbicaciones() ?? new List<string>();
                 cmbUbiFiltro.Items.Clear();
-                cmbUbiFiltro.Items.AddRange(ubicaciones.ToArray());
+
+                var listaLimpia = ubicaciones
+                    .Where(u => !string.IsNullOrWhiteSpace(u))
+                    .Select(u => u.Trim())
+                    .Distinct(StringComparer.OrdinalIgnoreCase)
+                    .OrderBy(u => u, StringComparer.OrdinalIgnoreCase)
+                    .ToList();
+
+                cmbUbiFiltro.Items.Add("Todos");
+                if (listaLimpia.Count > 0)
+                    cmbUbiFiltro.Items.AddRange(listaLimpia.ToArray());
+
+                cmbUbiFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbUbiFiltro.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -102,8 +138,6 @@ namespace GestorLaboratorio
                 dtpFechaIngGestionSus.Value = Convert.ToDateTime(fila.Cells["FechaIngreso"].Value);
                 dtpFechaVencGestionSus.Value = Convert.ToDateTime(fila.Cells["FechaVencimiento"].Value);
                 cmbPeligrosidadGestionSus.Text = fila.Cells["Peligrosidad"].Value.ToString();
-
-
             }
         }
 
@@ -217,6 +251,12 @@ namespace GestorLaboratorio
             string nombreFiltro = txtFiltroNombre.Text.Trim();
             try
             {
+                // Si el usuario seleccionó "Todos" lo convertimos a null para que el DAO no lo filtre
+                if (string.Equals(categoriaFiltro, "Todos", StringComparison.OrdinalIgnoreCase))
+                    categoriaFiltro = null;
+                if (string.Equals(ubicacionFiltro, "Todos", StringComparison.OrdinalIgnoreCase))
+                    ubicacionFiltro = null;
+
                 var resultados = SistemaFacade.Instancia.Buscar(nombreFiltro, categoriaFiltro, ubicacionFiltro);
                 dgvSus.DataSource = null;
                 dgvSus.DataSource = resultados;
@@ -231,8 +271,8 @@ namespace GestorLaboratorio
         private void btnSinFiltro_Click(object sender, EventArgs e)
         {
             // Limpiar filtros
-            cmbCategoriaFiltro.SelectedIndex = -1;
-            cmbUbiFiltro.SelectedIndex = -1; // Asumiendo que el índice 0 es "Todos" o el valor inicial
+            cmbCategoriaFiltro.SelectedIndex = 0;
+            cmbUbiFiltro.SelectedIndex = 0; // Seleccionar "Todos"
             txtFiltroNombre.Clear();
 
             // Recargar todas las sustancias
