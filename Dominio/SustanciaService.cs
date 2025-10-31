@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Persistencia;
 
 namespace Dominio
@@ -22,14 +23,10 @@ namespace Dominio
 
         public void AgregarSustancia(Sustancia s, List<int> idsIncompatibles)
         {
-            if (string.IsNullOrWhiteSpace(s.Nombre))
-                throw new ArgumentException("El nombre de la sustancia es obligatorio.");
+            if (s == null)
+                throw new ArgumentException("Sustancia nula.");
 
-            if (s.StockActual < 0)
-                throw new ArgumentException("El stock actual no puede ser negativo.");
-
-            if (s.FechaVencimiento <= s.FechaIngreso)
-                throw new ArgumentException("La fecha de vencimiento debe ser posterior a la de ingreso.");
+            ValidarSustancia(s, esActualizacion: false);
 
             // Insertar sustancia
             dao.Insertar(s);
@@ -58,16 +55,24 @@ namespace Dominio
 
         public void Actualizar(Sustancia s, List<int> idsIncompatibles)
         {
+            if (s == null)
+                throw new ArgumentException("Sustancia nula.");
+
             var existente = dao.ObtenerPorId(s.IdSustancia);
             if (existente == null)
                 throw new ArgumentException("La sustancia no existe.");
+
+            ValidarSustancia(s, esActualizacion: true);
 
             dao.Actualizar(s);
 
             // Actualizar incompatibilidades
             if (idsIncompatibles != null)
+            {
                 dao.ActualizarIncompatibilidades(s.IdSustancia, idsIncompatibles);
-                GenerarAlertasPorIncompatibilidad();
+            }
+
+            GenerarAlertasPorIncompatibilidad();
 
             var alertaDao = new AlertaDAO();
 
@@ -150,7 +155,16 @@ namespace Dominio
             var incompatibilidades = dao.ObtenerTodasIncompatibilidades();
             // Debe devolver List<(int idSustancia, int idIncompatibilidad)>
 
-            // Recorrer cada sustancia
+            string tipo = "Incompatibilidad de sustancias";
+
+            // Desactivar alertas antiguas de este tipo vinculadas a cada sustancia.
+            // Esto evita duplicados y asegura que al mover una sustancia se desactiven las alertas previas.
+            foreach (var s in sustancias)
+            {
+                alertaDao.DesactivarAlertasPorSustanciaYTipo(s.IdSustancia, tipo);
+            }
+
+            // Recorrer cada par de sustancias (solo una vez por par)
             foreach (var s1 in sustancias)
             {
                 foreach (var s2 in sustancias)
@@ -170,16 +184,18 @@ namespace Dominio
                     if (s1.Ubicacion == s2.Ubicacion)
                     {
                         // Crear alerta
-                        Alerta alerta = new Alerta
+                        Alerta alertaObj = new Alerta
                         {
-                            Tipo = "Incompatibilidad de sustancias",
+                            Tipo = tipo,
                             Descripcion = $"Las sustancias '{s1.Nombre}' y '{s2.Nombre}' son incompatibles y están en la misma ubicación '{s1.Ubicacion}'",
                             FechaHora = DateTime.Now,
                             Activo = true
                         };
 
-                        // Insertar alerta vinculada a las dos sustancias (opcional: vincular solo a la primera)
-                        alertaDao.Insertar(alerta, s1.IdSustancia);
+                        // Insertar una alerta vinculada a cada sustancia del par.
+                        // Al insertar para ambas, cuando se actualice (o mueva) cualquiera de las dos se podrán desactivar las alertas por IdSustancia.
+                        alertaDao.Insertar(alertaObj, s1.IdSustancia);
+                        alertaDao.Insertar(alertaObj, s2.IdSustancia);
                     }
                 }
             }
@@ -190,6 +206,50 @@ namespace Dominio
             return dao.ObtenerIdsIncompatibles(idSustancia);
         }
 
+        // Validaciones centrales para insertar/actualizar
+        private void ValidarSustancia(Sustancia s, bool esActualizacion)
+        {
+            // Nulos
+            if (s == null)
+                throw new ArgumentException("Sustancia nula.");
 
+            // Campos string obligatorios
+            if (string.IsNullOrWhiteSpace(s.Nombre))
+                throw new ArgumentException("El nombre de la sustancia es obligatorio.");
+            if (string.IsNullOrWhiteSpace(s.Categoria))
+                throw new ArgumentException("La categoría es obligatoria.");
+            if (string.IsNullOrWhiteSpace(s.UnidadMedida))
+                throw new ArgumentException("La unidad de medida es obligatoria.");
+            if (string.IsNullOrWhiteSpace(s.Peligrosidad))
+                throw new ArgumentException("La peligrosidad es obligatoria.");
+            if (string.IsNullOrWhiteSpace(s.DescripcionManipulacion))
+                throw new ArgumentException("La descripción de manipulación es obligatoria.");
+            if (string.IsNullOrWhiteSpace(s.Ubicacion))
+                throw new ArgumentException("La ubicación es obligatoria.");
+            if (string.IsNullOrWhiteSpace(s.EnvaseRecomendado))
+                throw new ArgumentException("El envase recomendado es obligatorio.");
+
+            // Unidad de medida permitida: Ml o Gr (insensible a mayúsculas)
+            var unidad = s.UnidadMedida.Trim();
+            if (!string.Equals(unidad, "Ml", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(unidad, "Gr", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException("La unidad de medida debe ser 'Ml' o 'Gr'.");
+            }
+
+            // Stocks
+            if (s.StockMinimo <= 0)
+                throw new ArgumentException("El stock mínimo debe ser mayor que 0.");
+            if (s.StockActual < 0)
+                throw new ArgumentException("El stock actual no puede ser negativo.");
+
+            // Fechas
+            if (s.FechaIngreso == DateTime.MinValue)
+                throw new ArgumentException("La fecha de ingreso es obligatoria y debe ser válida.");
+            if (s.FechaVencimiento == DateTime.MinValue)
+                throw new ArgumentException("La fecha de vencimiento es obligatoria y debe ser válida.");
+            if (s.FechaVencimiento <= s.FechaIngreso)
+                throw new ArgumentException("La fecha de vencimiento debe ser posterior a la de ingreso.");
+        }
     }
 }

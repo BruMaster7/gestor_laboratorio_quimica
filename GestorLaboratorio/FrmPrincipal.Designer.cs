@@ -52,6 +52,9 @@
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
+            // nuevos componentes para notificaciones
+            notifyIconAlerts = new NotifyIcon();
+            timerAlertas = new System.Windows.Forms.Timer();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -236,6 +239,20 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // notifyIconAlerts
+            // 
+            notifyIconAlerts.Icon = (Icon)resources.GetObject("$this.Icon");
+            notifyIconAlerts.Text = "Alertas Laboratorio";
+            notifyIconAlerts.Visible = false;
+            notifyIconAlerts.BalloonTipTitle = "Alertas Laboratorio";
+            notifyIconAlerts.BalloonTipIcon = ToolTipIcon.Warning;
+            notifyIconAlerts.DoubleClick += notifyIconAlerts_DoubleClick;
+            // 
+            // timerAlertas
+            // 
+            timerAlertas.Interval = 60000; // 60 segundos
+            timerAlertas.Tick += timerAlertas_Tick;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -289,5 +306,9 @@
         private System.Windows.Forms.ToolStripMenuItem añadirNuevoToolStripMenuItem;
         private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem4;
+
+        // declaracion de nuevos componentes
+        private NotifyIcon notifyIconAlerts;
+        private System.Windows.Forms.Timer timerAlertas;
     }
 }

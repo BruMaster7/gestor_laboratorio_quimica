@@ -13,5 +13,6 @@ namespace Entidades
         public string Docente { get; set; } // ahora varchar tomado del textbox
         public string Objetivo { get; set; }
         public int CantidadEstudiantes { get; set; }
+        public string Detalles { get; set; }
     }
 }

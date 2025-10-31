@@ -12,6 +12,7 @@ namespace Entidades
         public int IdPractica { get; set; }
         public DateTime FechaEnvio { get; set; }
         public string Estado { get; set; }
+        public string Detalles { get; set; }
 
         // Campos auxiliares llenados por el DAO para mostrar en UI
         public DateTime FechaPractica { get; set; }

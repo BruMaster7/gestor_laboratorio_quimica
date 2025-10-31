@@ -236,6 +236,7 @@
             Text = "Formularios";
             TransparencyKey = Color.Transparent;
             WindowState = FormWindowState.Maximized;
+            Load += FrmFormularios_Load_1;
             ResumeLayout(false);
             PerformLayout();
 

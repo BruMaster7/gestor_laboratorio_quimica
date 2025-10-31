@@ -1,8 +1,6 @@
 using Entidades;
 using MySql.Data.MySqlClient;
 using Persistencia.Persistencia;
-using System;
-using System.Collections.Generic;
 
 namespace Persistencia
 {
@@ -101,10 +99,10 @@ namespace Persistencia
             try
             {
                 conexion.AbrirConexion();
-                // Unir con Practica para mostrar datos relevantes en UI
+                // Unir con Practica para mostrar datos relevantes en UI (incluye ahora p.detalles)
                 string sql = @"
                     SELECT sp.idSolicitud, sp.idPractica, sp.fechaEnvio, sp.estado,
-                           p.fecha AS fechaPractica, p.objetivo, p.docente, p.cantidadEstudiantes
+                           p.fecha AS fechaPractica, p.objetivo, p.docente, p.cantidadEstudiantes, p.detalles
                     FROM SolicitudPractica sp
                     JOIN Practica p ON p.idPractica = sp.idPractica
                     ORDER BY sp.fechaEnvio DESC";
@@ -122,7 +120,8 @@ namespace Persistencia
                             FechaPractica = reader.IsDBNull(reader.GetOrdinal("fechaPractica")) ? DateTime.MinValue : reader.GetDateTime("fechaPractica"),
                             NombrePractica = reader.IsDBNull(reader.GetOrdinal("objetivo")) ? "" : reader.GetString("objetivo"),
                             Docente = reader.IsDBNull(reader.GetOrdinal("docente")) ? "" : reader.GetString("docente"),
-                            Grupo = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? "" : reader.GetInt32("cantidadEstudiantes").ToString()
+                            Grupo = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? "" : reader.GetInt32("cantidadEstudiantes").ToString(),
+                            Detalles = reader.IsDBNull(reader.GetOrdinal("detalles")) ? "" : reader.GetString("detalles")
                         });
                     }
                 }
@@ -142,7 +141,7 @@ namespace Persistencia
                 conexion.AbrirConexion();
                 string sql = @"
                     SELECT sp.idSolicitud, sp.idPractica, sp.fechaEnvio, sp.estado,
-                           p.fecha AS fechaPractica, p.objetivo, p.docente, p.cantidadEstudiantes
+                           p.fecha AS fechaPractica, p.objetivo, p.docente, p.cantidadEstudiantes, p.detalles
                     FROM SolicitudPractica sp
                     JOIN Practica p ON p.idPractica = sp.idPractica
                     WHERE sp.idSolicitud = @id";
@@ -161,7 +160,8 @@ namespace Persistencia
                             FechaPractica = reader.IsDBNull(reader.GetOrdinal("fechaPractica")) ? DateTime.MinValue : reader.GetDateTime("fechaPractica"),
                             NombrePractica = reader.IsDBNull(reader.GetOrdinal("objetivo")) ? "" : reader.GetString("objetivo"),
                             Docente = reader.IsDBNull(reader.GetOrdinal("docente")) ? "" : reader.GetString("docente"),
-                            Grupo = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? "" : reader.GetInt32("cantidadEstudiantes").ToString()
+                            Grupo = reader.IsDBNull(reader.GetOrdinal("cantidadEstudiantes")) ? "" : reader.GetInt32("cantidadEstudiantes").ToString(),
+                            Detalles = reader.IsDBNull(reader.GetOrdinal("detalles")) ? "" : reader.GetString("detalles")
                         };
                     }
                 }
