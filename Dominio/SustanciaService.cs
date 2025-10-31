@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Persistencia;
 
 namespace Dominio
@@ -154,7 +155,16 @@ namespace Dominio
             var incompatibilidades = dao.ObtenerTodasIncompatibilidades();
             // Debe devolver List<(int idSustancia, int idIncompatibilidad)>
 
-            // Recorrer cada sustancia
+            string tipo = "Incompatibilidad de sustancias";
+
+            // Desactivar alertas antiguas de este tipo vinculadas a cada sustancia.
+            // Esto evita duplicados y asegura que al mover una sustancia se desactiven las alertas previas.
+            foreach (var s in sustancias)
+            {
+                alertaDao.DesactivarAlertasPorSustanciaYTipo(s.IdSustancia, tipo);
+            }
+
+            // Recorrer cada par de sustancias (solo una vez por par)
             foreach (var s1 in sustancias)
             {
                 foreach (var s2 in sustancias)
@@ -174,16 +184,18 @@ namespace Dominio
                     if (s1.Ubicacion == s2.Ubicacion)
                     {
                         // Crear alerta
-                        Alerta alerta = new Alerta
+                        Alerta alertaObj = new Alerta
                         {
-                            Tipo = "Incompatibilidad de sustancias",
+                            Tipo = tipo,
                             Descripcion = $"Las sustancias '{s1.Nombre}' y '{s2.Nombre}' son incompatibles y están en la misma ubicación '{s1.Ubicacion}'",
                             FechaHora = DateTime.Now,
                             Activo = true
                         };
 
-                        // Insertar alerta vinculada a las dos sustancias (opcional: vincular solo a la primera)
-                        alertaDao.Insertar(alerta, s1.IdSustancia);
+                        // Insertar una alerta vinculada a cada sustancia del par.
+                        // Al insertar para ambas, cuando se actualice (o mueva) cualquiera de las dos se podrán desactivar las alertas por IdSustancia.
+                        alertaDao.Insertar(alertaObj, s1.IdSustancia);
+                        alertaDao.Insertar(alertaObj, s2.IdSustancia);
                     }
                 }
             }

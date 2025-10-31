@@ -16,9 +16,28 @@ namespace Dominio
 
         public void AgregarUsuario(Usuario nuevo)
         {
+            if (nuevo == null) throw new ArgumentNullException(nameof(nuevo));
+
+            // Normalizar nombre y validar
+            nuevo.nombre = nuevo.nombre?.Trim() ?? string.Empty;
+            if (string.IsNullOrEmpty(nuevo.nombre))
+            {
+                throw new ArgumentException("El nombre de usuario no puede estar vacío.");
+            }
+
             try
             {
                 conexion.AbrirConexion();
+
+                // Verificar existencia de usuario (insensible a mayúsculas)
+                string checkSql = "SELECT COUNT(*) FROM usuario WHERE LOWER(nombre) = LOWER(@nombre)";
+                using var checkCmd = new MySqlCommand(checkSql, conexion.ObtenerConexion());
+                checkCmd.Parameters.AddWithValue("@nombre", nuevo.nombre);
+                int existe = Convert.ToInt32(checkCmd.ExecuteScalar());
+                if (existe > 0)
+                {
+                    throw new InvalidOperationException("Ya existe un usuario con ese nombre.");
+                }
 
                 string sql = "INSERT INTO usuario (nombre, contrasena, idRol) VALUES (@nombre, @contrasena, @idRol)";
                 using var cmd = new MySqlCommand(sql, conexion.ObtenerConexion());
@@ -29,8 +48,6 @@ namespace Dominio
                 cmd.ExecuteNonQuery();
                 nuevo.idUsuario = (int)cmd.LastInsertedId;
                 //informar exito
-
-
             }
             catch (MySqlException ex)
             {
@@ -45,6 +62,12 @@ namespace Dominio
 
         public void EliminarUsuario(string nombreUsuario)
         {
+            // Evitar eliminación del usuario "Admin" (insensible a mayúsculas)
+            if (string.Equals(nombreUsuario, "Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new InvalidOperationException("No se puede eliminar el usuario 'Admin'.");
+            }
+
             try
             {
                 conexion.AbrirConexion();
